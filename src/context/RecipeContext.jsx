@@ -16,4 +16,8 @@ export function RecipeProvider({ children }) {
   useEffect(() => {
     localStorage.setItem("my-recipes", JSON.stringify(recipes));
   }, [recipes]);
+
+  const addRecipe = (newRecipe) => {
+    setRecipes([...recipes, newRecipe]);
+  };
 }
