@@ -11,4 +11,9 @@ export function RecipeProvider({ children }) {
 
     return JSON.parse(saved);
   });
+
+  // Overwrite the old saved data when a new recipe is added
+  useEffect(() => {
+    localStorage.setItem("my-recipes", JSON.stringify(recipes));
+  }, [recipes]);
 }
