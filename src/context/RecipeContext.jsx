@@ -20,4 +20,10 @@ export function RecipeProvider({ children }) {
   const addRecipe = (newRecipe) => {
     setRecipes([...recipes, newRecipe]);
   };
+
+  return (
+    <RecipeContext.Provider value={{ recipes, addRecipe }}>
+      {children}
+    </RecipeContext.Provider>
+  );
 }
