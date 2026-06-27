@@ -26,7 +26,7 @@
         {
           default = pkgs.mkShellNoCC {
             packages = with pkgs; [
-              nodejs_latest
+              nodejs_24
               biome
             ];
           };
