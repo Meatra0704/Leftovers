@@ -1,15 +1,14 @@
 import React, { createContext, useEffect, useState } from "react";
 
+import { mockRecipes } from "../data/mockRecipes";
+
 export const RecipeContext = createContext(null);
 
 export function RecipeProvider({ children }) {
   const [recipes, setRecipes] = useState(() => {
     const saved = localStorage.getItem("my-recipes");
-    if (!saved) {
-      return [];
-    }
 
-    return JSON.parse(saved);
+    return saved ? JSON.parse(saved) : mockRecipes;
   });
 
   // Overwrite the old saved data when a new recipe is added
