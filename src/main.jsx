@@ -6,6 +6,7 @@ import "@fontsource-variable/shantell-sans";
 import "@fontsource-variable/fredoka";
 
 import "./styles/reset.css";
+import "./styles/global.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
