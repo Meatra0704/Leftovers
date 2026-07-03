@@ -73,14 +73,16 @@ export default function AddRecipe() {
       newErrors.title = "This recipe already exists";
     }
 
-    const validIngredient = ingredients.filter((ing) => ing.name.trim() !== "");
-    if (validIngredient.length === 0) {
-      newErrors.ingredients = "Provide at least one ingredient.";
+    const hasEmptyIngredient = ingredients.some(
+      (ing) => ing.name.trim() === "",
+    );
+    if (hasEmptyIngredient || ingredients.length === 0) {
+      newErrors.ingredients = "All ingredient fields must be filled.";
     }
 
-    const validStep = steps.filter((step) => step.text.trim() !== "");
-    if (validStep.length === 0) {
-      newErrors.steps = "Provide at least one instruction step.";
+    const hasEmptyStep = steps.some((step) => step.text.trim() === "");
+    if (hasEmptyStep || steps.length === 0) {
+      newErrors.steps = "All instruction fields must be filled.";
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -91,8 +93,8 @@ export default function AddRecipe() {
     const newRecipe = {
       id: Date.now().toString(),
       title: title.trim(),
-      ingredients: validIngredient,
-      steps: validStep,
+      ingredients: ingredients,
+      steps: steps,
       imageUrl: imageUrl.trim(),
     };
 
