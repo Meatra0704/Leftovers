@@ -143,7 +143,10 @@ export default function AddRecipe() {
           </legend>
 
           {ingredients.map((ingredient) => (
-            <div className="add-recipe__row" key={ingredient.id}>
+            <div
+              className="add-recipe__row add-recipe__row--ingredient"
+              key={ingredient.id}
+            >
               <input
                 className={`add-recipe__input ${errors.ingredients ? "add-recipe__input--error" : ""}`}
                 onChange={(e) =>
@@ -232,7 +235,7 @@ export default function AddRecipe() {
           </legend>
 
           {steps.map((step, index) => (
-            <div className="add-recipe__step-row" key={step.id}>
+            <div className="add-recipe__row add-recipe--step" key={step.id}>
               <span className="add-recipe__step-number">{index + 1}.</span>
               <input
                 className={`add-recipe__input ${errors.steps ? "add-recipe__input--error" : ""}`}

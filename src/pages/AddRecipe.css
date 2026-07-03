@@ -68,16 +68,16 @@
 
 .add-recipe__row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr auto;
   gap: 1rem;
   align-items: center;
 }
 
-.add-recipe__step-row {
-  display: grid;
+.add-recipe__row--ingredient {
+  grid-template-columns: 2fr 1fr 1fr auto;
+}
+
+.add-reicpe__row--step {
   grid-template-columns: auto 1fr auto;
-  gap: 1rem;
-  align-items: center;
 }
 
 .add-recipe__step-number {
