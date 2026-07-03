@@ -12,11 +12,11 @@ export default function AddRecipe() {
     return { id: Date.now(), text: "" };
   };
 
+  const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState([setIngredientsState()]);
   const [steps, setSteps] = useState([setStepsState()]);
-  const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
   const { recipes, addRecipe } = useContext(RecipeContext);
 
   //Handle Ingredient Changes
@@ -63,28 +63,30 @@ export default function AddRecipe() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const newErrors = {};
+
     if (!title.trim()) {
-      setError("Please enter a title for your recipe.");
-      return;
+      newErrors.title = "Please enter a title for your recipe.";
+    } else if (
+      recipes.some((r) => r.title.toLowerCase() === title.toLowerCase().trim())
+    ) {
+      newErrors.title = "This recipe already exists";
     }
 
     const validIngredient = ingredients.filter((ing) => ing.name.trim() !== "");
+    if (validIngredient.length === 0) {
+      newErrors.ingredients = "Provide at least one ingredient.";
+    }
+
     const validStep = steps.filter((step) => step.text.trim() !== "");
-
-    if (validIngredient.length === 0 || validStep.length === 0) {
-      setError("Must provide ingredients and instructions before submitting");
-      return;
+    if (validStep.length === 0) {
+      newErrors.steps = "Provide at least one instruction step.";
     }
 
-    const isDuplicate = recipes.some(
-      (r) => r.title.toLowerCase() === title.toLowerCase().trim(),
-    );
-    if (isDuplicate) {
-      setError("This recipe already exists");
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
-
-    setError("");
 
     const newRecipe = {
       id: Date.now().toString(),
@@ -97,9 +99,10 @@ export default function AddRecipe() {
     addRecipe(newRecipe);
 
     setTitle("");
-    setImageUrl("");
     setIngredients([setIngredientsState()]);
     setSteps([setStepsState()]);
+    setImageUrl("");
+    setErrors({});
   };
 
   const handleChange = (e) => {
@@ -108,13 +111,17 @@ export default function AddRecipe() {
 
   return (
     <div className="container">
-      {error && <p className="add-recipe__error">{error}</p>}
-
       <form className="add-recipe" onSubmit={handleSubmit}>
         <label className="add-recipe__label">
-          Title:
+          <div className="add-recipe__header">
+            <span>Title</span>
+
+            {errors.title && (
+              <span className="add-recipe__error">{errors.title}</span>
+            )}
+          </div>
           <input
-            className="add-recipe__input"
+            className={`add-recipe__input ${errors.title ? "add-recipe__input--error" : ""}`}
             name="title"
             onChange={handleChange}
             placeholder="Pizza..."
@@ -123,12 +130,18 @@ export default function AddRecipe() {
         </label>
 
         <fieldset className="add-recipe__fieldset">
-          <legend className="add-recipe__legend">Ingredients</legend>
+          <legend className="add-recipe__header add-recipe__legend">
+            <span>Ingredients</span>
+
+            {errors.ingredients && (
+              <span className="add-recipe__error">{errors.ingredients}</span>
+            )}
+          </legend>
 
           {ingredients.map((ingredient) => (
             <div className="add-recipe__row" key={ingredient.id}>
               <input
-                className="add-recipe__input"
+                className={`add-recipe__input ${errors.ingredients ? "add-recipe__input--error" : ""}`}
                 onChange={(e) =>
                   handleIngredientChange(ingredient.id, "name", e.target.value)
                 }
@@ -137,7 +150,7 @@ export default function AddRecipe() {
               />
 
               <input
-                className="add-recipe__input"
+                className={`add-recipe__input ${errors.ingredients ? "add-recipe__input--error" : ""}`}
                 min="0"
                 onChange={(e) =>
                   handleIngredientChange(
@@ -153,7 +166,7 @@ export default function AddRecipe() {
               />
 
               <select
-                className="add-recipe__select"
+                className={`add-recipe__input ${errors.ingredients ? "add-recipe__input--error" : ""}`}
                 onChange={(e) =>
                   handleIngredientChange(ingredient.id, "unit", e.target.value)
                 }
@@ -206,13 +219,19 @@ export default function AddRecipe() {
         </fieldset>
 
         <fieldset className="add-recipe__fieldset">
-          <legend className="add-recipe__legend">Instructions</legend>
+          <legend className="add-recipe__header add-recipe__legend">
+            <span>Instructions</span>
+
+            {errors.steps && (
+              <span className="add-recipe__error">{errors.steps}</span>
+            )}
+          </legend>
 
           {steps.map((step, index) => (
             <div className="add-recipe__step-row" key={step.id}>
               <span className="add-recipe__step-number">{index + 1}.</span>
               <input
-                className="add-recipe__input"
+                className={`add-recipe__input ${errors.steps ? "add-recipe__input--error" : ""}`}
                 onChange={(e) => handleStepChange(step.id, e.target.value)}
                 placeholder="Add..."
                 value={step.text}
