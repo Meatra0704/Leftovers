@@ -6,10 +6,13 @@
   --palette-cream-100: #f8f0e3;
   --palette-cream-300: #f4e8d4;
   --palette-sky-100: #e3ebf8;
-  --palette-sky-900: #404181;
+  --palette-sky-500: #404181;
+  --palette-sky-600: #002b8a;
   --palette-ink-500: #62606a;
   --palette-ink-700: #3e3e3e;
   --palette-ink-900: #111111;
+
+  --border-subtle: var(--palette-cream-300);
 
   --bg-primary: var(--palette-cream-100);
   --bg-secondary: var(--palette-cream-300);
@@ -19,14 +22,17 @@
   --text-inverse: var(--palette-white);
   --text-hover: var(--palette-ink-700);
 
-  --btn-primary-bg: var(--palette-sky-900);
+  --btn-primary-bg: var(--palette-sky-500);
   --btn-primary-text: var(--palette-white);
-  --btn-primary-hover: var(--palette-ink-700);
+  --btn-primary-hover: var(--palette-sky-600);
 
-  --btn-secondary-border: var(--palette-sky-900);
-  --btn-secondary-text: var(--palette-ink-900);
+  --btn-secondary-bg: transparent;
+  --btn-secondary-text: var(--palette-sky-500);
+  --btn-secondary-border: var(--palette-sky-500);
 
-  --border-subtle: var(--palette-cream-300);
+  --btn-secondary-hover-bg: var(--palette-sky-500);
+  --btn-secondary-hover-text: var(--text-inverse);
+  --btn-secondary-hover-border: var(--palette-sky-500);
 }
 
 body {
@@ -40,4 +46,40 @@ body {
   max-width: 1400px;
   padding: 0 2rem;
   margin: 0 auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn--primary {
+  color: var(--btn-primary-text);
+  background-color: var(--btn-primary-bg);
+}
+
+.btn--primary:hover {
+  background-color: var(--btn-primary-hover);
+}
+
+.btn--secondary {
+  color: var(--btn-secondary-text);
+  background-color: var(--btn-secondary-bg);
+  border-color: var(--btn-secondary-border);
+}
+
+.btn--secondary:hover {
+  color: var(--btn-secondary-hover-text);
+  background-color: var(--btn-secondary-hover-bg);
+  border-color: var(--btn-secondary-hover-border);
 }
