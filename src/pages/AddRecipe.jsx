@@ -2,8 +2,12 @@ import React, { useContext, useState } from "react";
 import { RecipeContext } from "../context/RecipeContext";
 
 export default function AddRecipe() {
+  const setIngredientsState = () => {
+    return {id: Date.now(), name: "", amount: "", measurement: "whole"}
+  }
+
   const [ingredients, setIngredients] = useState([
-    { id: Date.now(), name: "", amount: "", measurement: "cup" },
+    setIngredientsState()
   ]);
   const [steps, setSteps] = useState([{ id: Date.now(), text: "" }]);
   const [title, setTitle] = useState("");
@@ -26,7 +30,7 @@ export default function AddRecipe() {
   const addIngredientRow = () => {
     setIngredients([
       ...ingredients,
-      { id: Date.now(), name: "", amount: "", measurement: "cup" },
+      setIngredientsState()
     ]);
   };
 
@@ -34,7 +38,7 @@ export default function AddRecipe() {
     //If last row reset the input
     if (ingredients.length <= 1) {
       setIngredients([
-        { id: Date.now(), name: "", amount: "", measurement: "cup" },
+      setIngredientsState()
       ]);
       return;
     }
@@ -62,12 +66,6 @@ export default function AddRecipe() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Successfully submitted:", {
-      title,
-      ingredients,
-      steps,
-      imageUrl,
-    });
 
     if (!title.trim()) {
       setError("Please enter a title for your recipe.");
@@ -75,9 +73,9 @@ export default function AddRecipe() {
     }
 
     const validIngredient = ingredients.filter((ing) => ing.name.trim() !== "");
-    const validStep = steps.filter((step) => step.text.trim() === !"");
+    const validStep = steps.filter((step) => step.text.trim() !== "");
 
-    if (validIngredient.length === 0 && validStep.length === 0) {
+    if (validIngredient.length === 0 || validStep.length === 0) {
       setError("Must provide ingredients and instructions before submitting");
       return;
     }
@@ -96,7 +94,8 @@ export default function AddRecipe() {
       id: Date.now().toString(),
       title: title.trim(),
       ingredients: validIngredient,
-      step: validStep,
+      steps: validStep,
+      imageUrl: imageUrl.trim(),
     };
 
     addRecipe(newRecipe);
@@ -105,9 +104,10 @@ export default function AddRecipe() {
     setImageUrl("");
     setIngredients([
       {
+        id: Date.now(),
         name: "",
         amount: "",
-        measurement: "",
+        measurement: "whole",
       },
     ]);
     setSteps([""]);
