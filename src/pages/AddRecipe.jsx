@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
+
 import { RecipeContext } from "../context/RecipeContext";
+import "./AddRecipe.css";
 
 export default function AddRecipe() {
   const setIngredientsState = () => {
@@ -15,9 +17,6 @@ export default function AddRecipe() {
 
   //Handle Ingredient Changes
   const handleIngredientChange = (id, field, value) => {
-    // const updatedIngredients = [...ingredients];
-    // updatedIngredients[id][field] = value;
-    // setIngredients(updatedIngredients);
     setIngredients(
       ingredients.map((ing) =>
         ing.id === id ? { ...ing, [field]: value } : ing,
@@ -104,12 +103,14 @@ export default function AddRecipe() {
   };
 
   return (
-    <>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <label>
+    <div className="container">
+      {error && <p className="add-recipe__error">{error}</p>}
+
+      <form className="add-recipe" onSubmit={handleSubmit}>
+        <label className="add-recipe__label">
           Title:
           <input
+            className="add-recipe__input"
             name="title"
             onChange={handleChange}
             placeholder="Pizza..."
@@ -117,18 +118,22 @@ export default function AddRecipe() {
           />
         </label>
 
-        <fieldset>
-          <legend>Ingredients</legend>
+        <fieldset className="add-recipe__fieldset">
+          <legend className="add-recipe__legend">Ingredients</legend>
+
           {ingredients.map((ingredient) => (
-            <div key={ingredient.id}>
+            <div className="add-recipe__row" key={ingredient.id}>
               <input
+                className="add-recipe__input"
                 onChange={(e) =>
                   handleIngredientChange(ingredient.id, "name", e.target.value)
                 }
                 placeholder="Ingredient (e.g. Salmon)"
                 value={ingredient.name}
               />
+
               <input
+                className="add-recipe__input"
                 min="0"
                 onChange={(e) =>
                   handleIngredientChange(
@@ -144,6 +149,7 @@ export default function AddRecipe() {
               />
 
               <select
+                className="add-recipe__select"
                 onChange={(e) =>
                   handleIngredientChange(ingredient.id, "unit", e.target.value)
                 }
@@ -177,6 +183,7 @@ export default function AddRecipe() {
               </select>
 
               <button
+                className="btn btn--secondary"
                 onClick={() => removeIngredientRow(ingredient.id)}
                 type="button"
               >
@@ -184,35 +191,51 @@ export default function AddRecipe() {
               </button>
             </div>
           ))}
-          <button onClick={addIngredientRow} type="button">
+
+          <button
+            className="btn btn--secondary add-recipe__btn"
+            onClick={addIngredientRow}
+            type="button"
+          >
             Add Ingredient
           </button>
         </fieldset>
 
-        <fieldset>
-          <legend>Instructions</legend>
+        <fieldset className="add-recipe__fieldset">
+          <legend className="add-recipe__legend">Instructions</legend>
+
           {steps.map((step, index) => (
-            <div key={step.id}>
-              <span>{index + 1}.</span>
+            <div className="add-recipe__step-row" key={step.id}>
+              <span className="add-recipe__step-number">{index + 1}.</span>
               <input
+                className="add-recipe__input"
                 onChange={(e) => handleStepChange(step.id, e.target.value)}
                 placeholder="Add..."
                 value={step.text}
               />
-              <button onClick={() => removeStepRow(step.id)} type="button">
+              <button
+                className="btn btn--secondary"
+                onClick={() => removeStepRow(step.id)}
+                type="button"
+              >
                 Remove
               </button>
             </div>
           ))}
 
-          <button onClick={addStepRow} type="button">
+          <button
+            className="btn btn--secondary add-recipe__btn"
+            onClick={addStepRow}
+            type="button"
+          >
             Add Step
           </button>
         </fieldset>
 
-        <label>
+        <label className="add-recipe__label">
           Share your results:
           <input
+            className="add-recipe__input"
             name="imageUrl"
             onChange={(e) => setImageUrl(e.target.value)}
             placeholder="Place your image..."
@@ -220,8 +243,13 @@ export default function AddRecipe() {
           />
         </label>
 
-        <button type="submit">Submit Recipe</button>
+        <button
+          className="btn btn--secondary add-recipe__btn add-recipe__btn--submit"
+          type="submit"
+        >
+          Submit Recipe
+        </button>
       </form>
-    </>
+    </div>
   );
 }
