@@ -93,3 +93,33 @@
 .add-recipe__btn--remove {
   padding: 1rem;
 }
+
+@media (max-width: 768px) {
+  .add-recipe {
+    padding: 0.5rem;
+    margin: 0.5rem auto;
+  }
+
+  .add-recipe__row {
+    gap: 0.8rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .add-recipe__row--ingredient {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .add-recipe__row--ingredient > .add-recipe__input:nth-child(1),
+  .add-recipe__row--ingredient > .btn--danger {
+    grid-column: 1 / -1;
+  }
+
+  .add-recipe__row--step {
+    grid-template-columns: auto 1fr;
+  }
+
+  .add-recipe__row--step > .btn--danger {
+    grid-column: 1 / -1;
+  }
+}
