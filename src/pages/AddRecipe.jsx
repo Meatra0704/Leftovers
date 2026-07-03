@@ -8,8 +8,12 @@ export default function AddRecipe() {
     return { id: Date.now(), name: "", amount: "", unit: "whole" };
   };
 
+  const setStepsState = () => {
+    return { id: Date.now(), text: "" };
+  };
+
   const [ingredients, setIngredients] = useState([setIngredientsState()]);
-  const [steps, setSteps] = useState([{ id: Date.now(), text: "" }]);
+  const [steps, setSteps] = useState([setStepsState()]);
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [error, setError] = useState("");
@@ -45,12 +49,12 @@ export default function AddRecipe() {
   };
 
   const addStepRow = () => {
-    setSteps([...steps, { id: Date.now(), text: "" }]);
+    setSteps([...steps, setStepsState()]);
   };
 
   const removeStepRow = (id) => {
     if (steps.length <= 1) {
-      setSteps([{ id: Date.now(), text: "" }]);
+      setSteps([setStepsState()]);
       return;
     }
     setSteps(steps.filter((step) => step.id !== id));
@@ -95,7 +99,7 @@ export default function AddRecipe() {
     setTitle("");
     setImageUrl("");
     setIngredients([setIngredientsState()]);
-    setSteps([""]);
+    setSteps([setStepsState()]);
   };
 
   const handleChange = (e) => {
