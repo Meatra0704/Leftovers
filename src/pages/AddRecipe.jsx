@@ -123,6 +123,7 @@ export default function AddRecipe() {
               <span className="add-recipe__error">{errors.title}</span>
             )}
           </div>
+
           <input
             className={`add-recipe__input ${errors.title ? "add-recipe__input--error" : ""}`}
             name="title"
@@ -133,7 +134,7 @@ export default function AddRecipe() {
         </label>
 
         <fieldset className="add-recipe__fieldset">
-          <legend className="add-recipe__header add-recipe__legend">
+          <legend className="add-recipe__header">
             <span>Ingredients</span>
 
             {errors.ingredients && (
@@ -222,7 +223,7 @@ export default function AddRecipe() {
         </fieldset>
 
         <fieldset className="add-recipe__fieldset">
-          <legend className="add-recipe__header add-recipe__legend">
+          <legend className="add-recipe__header">
             <span>Instructions</span>
 
             {errors.steps && (
@@ -240,7 +241,7 @@ export default function AddRecipe() {
                 value={step.text}
               />
               <button
-                className="btn btn--danger"
+                className="btn btn--danger add-recipe__btn--remove"
                 onClick={() => removeStepRow(step.id)}
                 type="button"
               >
@@ -259,7 +260,10 @@ export default function AddRecipe() {
         </fieldset>
 
         <label className="add-recipe__label">
-          Share your results
+          <div className="add-recipe__header">
+            <span>Share your results</span>
+          </div>
+
           <input
             className="add-recipe__input"
             name="imageUrl"
