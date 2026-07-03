@@ -2,16 +2,31 @@
   --font-display: "Shantell Sans Variable", serif;
   --font-body: "Fredoka Variable", sans-serif;
 
+  --palette-white: #ffffff;
   --palette-cream-100: #f8f0e3;
   --palette-cream-300: #f4e8d4;
+  --palette-sky-100: #e3ebf8;
+  --palette-sky-900: #404181;
   --palette-ink-500: #62606a;
-  --palette-int-700: #3e3e3e;
+  --palette-ink-700: #3e3e3e;
   --palette-ink-900: #111111;
 
   --bg-primary: var(--palette-cream-100);
+  --bg-secondary: var(--palette-cream-300);
 
   --text-display: var(--palette-ink-900);
   --text-body: var(--palette-ink-500);
+  --text-inverse: var(--palette-white);
+  --text-hover: var(--palette-ink-700);
+
+  --btn-primary-bg: var(--palette-sky-900);
+  --btn-primary-text: var(--palette-white);
+  --btn-primary-hover: var(--palette-ink-700);
+
+  --btn-secondary-border: var(--palette-sky-900);
+  --btn-secondary-text: var(--palette-ink-900);
+
+  --border-subtle: var(--palette-cream-300);
 }
 
 body {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import "./Navbar.css";
 
@@ -13,21 +13,36 @@ export default function Navbar() {
 
         <ul className="nav__list">
           <li className="nav__item">
-            <Link className="nav__link" to="/recipes">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "nav__link nav__link--active" : "nav__link"
+              }
+              to="/recipes"
+            >
               Catalog
-            </Link>
+            </NavLink>
           </li>
 
           <li className="nav__item">
-            <Link className="nav__link" to="/favorites">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "nav__link nav__link--active" : "nav__link"
+              }
+              to="/favorites"
+            >
               Favorites
-            </Link>
+            </NavLink>
           </li>
 
           <li className="nav__item">
-            <Link className="nav__link" to="/add">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "nav__link nav__link--active" : "nav__link"
+              }
+              to="/add"
+            >
               Add Recipe
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
