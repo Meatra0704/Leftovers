@@ -25,16 +25,24 @@
 
 .nav__link {
   color: var(--text-display);
+  letter-spacing: 0.5px;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-decoration-color: transparent;
   text-underline-offset: 5px;
   transition:
     color 0.3s ease,
-    text-decoration-color 0.3s ease;
+    text-decoration-color 0.3s ease,
+    font-weight 0.3s ease;
 }
 
 .nav__link:hover {
-  color: var(--palette-int-700);
-  text-decoration-color: var(--palette-int-700);
+  color: var(--palette-ink-700);
+  text-decoration-color: var(--palette-ink-700);
+}
+
+.nav__link--active {
+  font-weight: 500;
+  color: var(--text-display);
+  text-decoration-color: var(--text-display);
 }
