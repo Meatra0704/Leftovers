@@ -76,7 +76,7 @@
   grid-template-columns: 2fr 1fr 1fr auto;
 }
 
-.add-reicpe__row--step {
+.add-recipe__row--step {
   grid-template-columns: auto 1fr auto;
 }
 
