@@ -1,3 +1,4 @@
+import { Plus, Trash2 } from "lucide-react";
 import React, { useContext, useState } from "react";
 
 import { RecipeContext } from "../context/RecipeContext";
@@ -206,7 +207,7 @@ export default function AddRecipe() {
                 onClick={() => removeIngredientRow(ingredient.id)}
                 type="button"
               >
-                Remove
+                <Trash2 size={18} />
               </button>
             </div>
           ))}
@@ -216,7 +217,7 @@ export default function AddRecipe() {
             onClick={addIngredientRow}
             type="button"
           >
-            Add Ingredient
+            <Plus size={18} style={{ marginRight: "8px" }} /> Add Ingredient
           </button>
         </fieldset>
 
@@ -243,7 +244,7 @@ export default function AddRecipe() {
                 onClick={() => removeStepRow(step.id)}
                 type="button"
               >
-                Remove
+                <Trash2 size={18} />
               </button>
             </div>
           ))}
@@ -253,12 +254,12 @@ export default function AddRecipe() {
             onClick={addStepRow}
             type="button"
           >
-            Add Step
+            <Plus size={18} style={{ marginRight: "8px" }} /> Add Step
           </button>
         </fieldset>
 
         <label className="add-recipe__label">
-          Share your results:
+          Share your results
           <input
             className="add-recipe__input"
             name="imageUrl"
