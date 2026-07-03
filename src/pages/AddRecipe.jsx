@@ -235,7 +235,10 @@ export default function AddRecipe() {
           </legend>
 
           {steps.map((step, index) => (
-            <div className="add-recipe__row add-recipe--step" key={step.id}>
+            <div
+              className="add-recipe__row add-recipe__row--step"
+              key={step.id}
+            >
               <span className="add-recipe__step-number">{index + 1}.</span>
               <input
                 className={`add-recipe__input ${errors.steps ? "add-recipe__input--error" : ""}`}
