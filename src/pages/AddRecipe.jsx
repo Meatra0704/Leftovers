@@ -183,7 +183,7 @@ export default function AddRecipe() {
               </select>
 
               <button
-                className="btn btn--secondary"
+                className="btn btn--danger"
                 onClick={() => removeIngredientRow(ingredient.id)}
                 type="button"
               >
@@ -214,7 +214,7 @@ export default function AddRecipe() {
                 value={step.text}
               />
               <button
-                className="btn btn--secondary"
+                className="btn btn--danger"
                 onClick={() => removeStepRow(step.id)}
                 type="button"
               >
@@ -243,10 +243,7 @@ export default function AddRecipe() {
           />
         </label>
 
-        <button
-          className="btn btn--secondary add-recipe__btn add-recipe__btn--submit"
-          type="submit"
-        >
+        <button className="btn btn--primary add-recipe__btn " type="submit">
           Submit Recipe
         </button>
       </form>
