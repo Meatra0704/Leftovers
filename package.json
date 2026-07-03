@@ -11,6 +11,7 @@
   "dependencies": {
     "@fontsource-variable/fredoka": "^5.2.10",
     "@fontsource-variable/shantell-sans": "^5.2.7",
+    "lucide-react": "^1.23.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.0"
