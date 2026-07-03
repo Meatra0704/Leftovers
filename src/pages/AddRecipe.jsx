@@ -203,7 +203,7 @@ export default function AddRecipe() {
               </select>
 
               <button
-                className="btn btn--danger"
+                className="btn btn--danger add-recipe__btn--remove"
                 onClick={() => removeIngredientRow(ingredient.id)}
                 type="button"
               >
