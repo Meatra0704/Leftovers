@@ -2,6 +2,7 @@
   --font-display: "Shantell Sans Variable", serif;
   --font-body: "Fredoka Variable", sans-serif;
 
+  /* Colors */
   --palette-white: #ffffff;
   --palette-cream-100: #f8f0e3;
   --palette-cream-300: #f4e8d4;
@@ -15,7 +16,18 @@
   --palette-red-500: #c1513e;
   --palette-red-600: #d72e28;
 
-  --border-subtle: var(--palette-cream-300);
+  --space-xs: 0.4rem;
+  --space-sm: 0.8rem;
+  --space-md: 1.6rem;
+  --space-lg: 2.4rem;
+  --space-xl: 3.2rem;
+  --space-xxl: 4.8rem;
+  --space-xxxl: 6.4rem;
+
+  --text-sm: clamp(1.2rem, 0.8rem + 1.5vw, 1.4rem);
+  --text-base: clamp(1.4rem, 1rem + 2vw, 1.6rem);
+  --text-lg: clamp(1.8rem, 1.2rem + 2.5vw, 2.4rem);
+  --text-xl: clamp(2.4rem, 1.2rem + 4vw, 3.2rem);
 
   --bg-primary: var(--palette-cream-100);
   --bg-secondary: var(--palette-cream-300);
@@ -25,27 +37,11 @@
   --text-inverse: var(--palette-white);
   --text-hover: var(--palette-ink-700);
   --text-error: var(--palette-red-500);
-
-  /* Buttons */
-  --btn-primary-bg: var(--palette-sky-500);
-  --btn-primary-text: var(--palette-white);
-  --btn-primary-hover: var(--palette-sky-600);
-
-  --btn-secondary-bg: transparent;
-  --btn-secondary-text: var(--palette-sky-500);
-  --btn-secondary-border: var(--palette-sky-500);
-
-  --btn-secondary-hover-bg: var(--palette-sky-500);
-  --btn-secondary-hover-text: var(--text-inverse);
-  --btn-secondary-hover-border: var(--palette-sky-500);
-
-  --btn-danger-bg: var(--palette-red-500);
-  --btn-danger-text: var(--palette-white);
-  --btn-danger-hover: var(--palette-red-600);
 }
 
 body {
   font-family: var(--font-body);
+  font-size: var(--text-base);
   color: var(--text-body);
   background-color: var(--bg-primary);
 }
@@ -53,51 +49,56 @@ body {
 .container {
   width: 100%;
   max-width: 1400px;
-  padding: 0 2rem;
+  padding: 0 var(--space-lg);
   margin: 0 auto;
 }
 
 .btn {
+  --_bg: var(--btn-bg, transparent);
+  --_text: var(--btn-text, var(--text-display));
+  --_border: var(--btn-border, transparent);
+
+  --_hover-bg: var(--btn-hover-bg, transparent);
+  --_hover-text: var(--btn-hover-text, var(--_text));
+  --_hover-border: var(--btn-hover-border, var(--_border));
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.8rem 2rem;
-  font-family: var(--font-body);
+  padding: var(--space-sm) var(--space-lg);
   font-weight: 600;
+  color: var(--_text);
   letter-spacing: 1px;
   text-decoration: none;
   cursor: pointer;
-  border: 2px solid transparent;
+  background-color: var(--_bg);
+  border: 2px solid var(--_border);
   border-radius: 8px;
   transition: all 0.2s ease;
 }
 
-.btn--primary {
-  color: var(--btn-primary-text);
-  background-color: var(--btn-primary-bg);
+.btn:hover {
+  color: var(--_hover-text);
+  background-color: var(--_hover-bg);
+  border-color: var(--_hover-border);
 }
 
-.btn--primary:hover {
-  background-color: var(--btn-primary-hover);
+.btn--primary {
+  --btn-bg: var(--palette-sky-500);
+  --btn-text: var(--text-inverse);
+  --btn-hover-bg: var(--palette-sky-600);
 }
 
 .btn--secondary {
-  color: var(--btn-secondary-text);
-  background-color: var(--btn-secondary-bg);
-  border-color: var(--btn-secondary-border);
-}
-
-.btn--secondary:hover {
-  color: var(--btn-secondary-hover-text);
-  background-color: var(--btn-secondary-hover-bg);
-  border-color: var(--btn-secondary-hover-border);
+  --btn-text: var(--palette-sky-500);
+  --btn-border: var(--palette-sky-500);
+  --btn-hover-bg: var(--palette-sky-500);
+  --btn-hover-text: var(--text-inverse);
+  --btn-hover-border: var(--palette-sky-500);
 }
 
 .btn--danger {
-  color: var(--btn-danger-text);
-  background-color: var(--btn-danger-bg);
-}
-
-.btn--danger:hover {
-  background-color: var(--btn-danger-hover);
+  --btn-bg: var(--palette-red-500);
+  --btn-text: var(--text-inverse);
+  --btn-hover-bg: var(--palette-red-600);
 }
