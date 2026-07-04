@@ -24,12 +24,10 @@
   --space-xxl: 4.8rem;
   --space-xxxl: 6.4rem;
 
-  --text-sm: clamp(1.2rem, 1.5vw + 0.8rem, 1.4rem);
-  --text-base: clamp(1.4rem, 2vw + 1rem, 1.6rem);
-  --text-lg: clamp(1.8rem, 2.5vw + 1.2rem, 2.4rem);
-  --text-xl: clamp(2.4rem, 4vw + 1.2rem, 3.2rem);
-
-  --border-subtle: var(--palette-cream-300);
+  --text-sm: clamp(1.2rem, 0.8rem + 1.5vw, 1.4rem);
+  --text-base: clamp(1.4rem, 1rem + 2vw, 1.6rem);
+  --text-lg: clamp(1.8rem, 1.2rem + 2.5vw, 2.4rem);
+  --text-xl: clamp(2.4rem, 1.2rem + 4vw, 3.2rem);
 
   --bg-primary: var(--palette-cream-100);
   --bg-secondary: var(--palette-cream-300);
@@ -43,6 +41,7 @@
 
 body {
   font-family: var(--font-body);
+  font-size: var(--text-base);
   color: var(--text-body);
   background-color: var(--bg-primary);
 }
@@ -50,7 +49,7 @@ body {
 .container {
   width: 100%;
   max-width: 1400px;
-  padding: 0 2rem;
+  padding: 0 var(--space-lg);
   margin: 0 auto;
 }
 
@@ -66,8 +65,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.8rem 2rem;
-  font-family: var(--font-body);
+  padding: var(--space-sm) var(--space-lg);
   font-weight: 600;
   color: var(--_text);
   letter-spacing: 1px;

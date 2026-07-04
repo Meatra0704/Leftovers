@@ -1,16 +1,15 @@
 .add-recipe {
   display: flex;
   flex-direction: column;
-  gap: clamp(1rem, 3vw, 1.6rem);
+  gap: clamp(var(--space-md), 1.4rem + 0.75vw, var(--space-lg));
   max-width: 900px;
-  padding: clamp(1rem, 5vw, 3rem);
-  margin: 2rem auto;
+  padding: clamp(var(--space-md), 0.75rem + 2vw, var(--space-xxl));
+  margin: var(--space-lg) auto;
 }
 
 .add-recipe__error {
-  margin-top: 0.25rem;
   font-family: var(--font-body);
-  font-size: 1.4rem;
+  font-size: var(--text-sm);
   font-weight: 500;
   color: var(--text-error);
 }
@@ -21,7 +20,7 @@
   justify-content: space-between;
   width: 100%;
   padding: 0;
-  margin: 0 0 clamp(0.5rem, 2vw, 1rem) 0;
+  margin: 0 0 clamp(var(--space-xs), 0.3rem + 0.36vw, var(--space-sm)) 0;
   font-family: var(--font-display);
   font-weight: 600;
   color: var(--text-display);
@@ -35,40 +34,39 @@
 .add-recipe__fieldset {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--space-md);
   padding: 0;
   border: none;
 }
 
 .add-recipe__input {
+  --_border: var(--input-border, var(--palette-ink-500));
+
   width: 100%;
   height: 100%;
-  padding: 0.8rem 1rem;
+  padding: var(--space-sm) var(--space-md);
   font-family: var(--font-body);
   font-weight: 400;
   color: var(--text-display);
   background-color: var(--palette-white);
-  border: 1px solid var(--palette-ink-500);
+  border: 1px solid var(--_border);
   border-radius: 6px;
   transition: border-color 0.2s ease;
 }
 
 .add-recipe__input:focus {
+  --input-border: var(--palette-sky-500);
   outline: none;
-  border-color: var(--btn-primary-bg);
 }
 
-.add-recipe__input--error {
-  border-color: var(--text-error);
-}
-
+.add-recipe__input--error,
 .add-recipe__input--error:focus {
-  border-color: var(--text-error);
+  --input-border: var(--text-error);
 }
 
 .add-recipe__row {
   display: grid;
-  gap: 1rem;
+  gap: var(--space-sm);
   align-items: center;
 }
 
@@ -91,12 +89,12 @@
 }
 
 .add-recipe__btn--remove {
-  padding: 1rem;
+  padding: var(--space-sm);
 }
 
 @media (max-width: 768px) {
   .add-recipe__row {
-    padding-bottom: 1rem;
+    padding-bottom: var(--space-sm);
     border-bottom: 1px solid var(--border-subtle);
   }
 
