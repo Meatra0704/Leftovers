@@ -102,3 +102,13 @@ body {
   --btn-text: var(--text-inverse);
   --btn-hover-bg: var(--palette-red-600);
 }
+
+@media (max-width: 768px) {
+  :root {
+    --bottom-nav-height: calc(4.8rem + env(safe-area-inset-bottom));
+  }
+
+  body {
+    padding-bottom: var(--bottom-nav-height);
+  }
+}
