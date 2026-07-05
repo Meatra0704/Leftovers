@@ -13,15 +13,17 @@ export default function Catalog() {
           subtitle="Explore your favorite cusine"
           title="Catalog"
         ></PageHeader>
-        {recipes.map((recipe) => (
-          <RecipeCard
-            id={recipe.id}
-            imageUrl={recipe.imageUrl}
-            ingredients={recipe.ingredients}
-            key={recipe.id}
-            title={recipe.title}
-          />
-        ))}
+        <div className="recipe-grid">
+          {recipes.map((recipe) => (
+            <RecipeCard
+              id={recipe.id}
+              imageUrl={recipe.imageUrl}
+              ingredients={recipe.ingredients}
+              key={recipe.id}
+              title={recipe.title}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
