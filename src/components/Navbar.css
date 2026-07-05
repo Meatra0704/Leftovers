@@ -1,5 +1,9 @@
 .nav {
-  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: var(--space-md) 0;
+  background-color: var(--bg-primary);
   border-bottom: 1px solid var(--border-subtle);
   box-shadow: 0px 6px 6px -5px var(--border-subtle);
 }
@@ -12,7 +16,7 @@
 
 .nav__logo {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: var(--text-xl);
   font-weight: 600;
   color: var(--text-display);
   text-decoration: none;
@@ -20,16 +24,29 @@
 
 .nav__list {
   display: flex;
-  gap: clamp(1rem, 3vw, 4rem);
+  gap: clamp(var(--space-md), 0.143rem + 2.679vw, var(--space-xxl));
   justify-content: center;
 }
 
+.nav__item--mobile {
+  display: none;
+}
+
 .nav__link {
-  color: var(--text-display);
+  --_color: var(--link-color, var(--text-display));
+  --_decoration: var(--link-decoration, transparent);
+  --_weight: var(--link-weight, 400);
+
+  display: flex;
+  gap: var(--space-xs);
+  align-items: center;
+  font-size: var(--text-base);
+  font-weight: var(--_weight);
+  color: var(--_color);
   letter-spacing: 0.5px;
   text-decoration: underline;
   text-decoration-thickness: 2px;
-  text-decoration-color: transparent;
+  text-decoration-color: var(--_decoration);
   text-underline-offset: 5px;
   transition:
     color 0.3s ease,
@@ -37,13 +54,59 @@
     font-weight 0.3s ease;
 }
 
+.nav__icon {
+  display: none;
+}
+
 .nav__link:hover {
-  color: var(--palette-ink-700);
-  text-decoration-color: var(--text-hover);
+  --link-color: var(--palette-ink-700);
+  --link-decoration: var(--text-hover);
 }
 
 .nav__link--active {
-  font-weight: 500;
-  color: var(--text-display);
-  text-decoration-color: var(--text-display);
+  --link-weight: 500;
+  --link-decoration: var(--text-display);
+}
+
+@media (max-width: 768px) {
+  .nav__item--mobile {
+    display: block;
+  }
+
+  .nav {
+    padding: var(--space-sm) 0;
+  }
+
+  .nav__list {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: var(--space-sm) 0
+      calc(var(--space-sm) + env(safe-area-inset-bottom)) 0;
+    background-color: var(--bg-primary);
+    border-top: 1px solid var(--border-subtle);
+    box-shadow: 0px -4px 10px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav__link {
+    --link-color: var(--text-body);
+
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+    text-decoration: none;
+  }
+
+  .nav__icon {
+    display: block;
+  }
+
+  .nav__link:hover,
+  .nav__link--active {
+    --link-decoration: transparent;
+    --link-color: var(--palette-sky-500);
+  }
 }
