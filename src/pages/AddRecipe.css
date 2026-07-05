@@ -3,8 +3,7 @@
   flex-direction: column;
   gap: clamp(var(--space-md), 1.4rem + 0.75vw, var(--space-lg));
   max-width: 900px;
-  padding: clamp(var(--space-md), 0.75rem + 2vw, var(--space-xxl));
-  margin: var(--space-lg) auto;
+  margin: 0 auto;
 }
 
 .add-recipe__error {

@@ -113,7 +113,7 @@ export default function AddRecipe() {
   };
 
   return (
-    <div className="container">
+    <div className="container page-view">
       <form className="add-recipe" onSubmit={handleSubmit}>
         <label className="add-recipe__label">
           <div className="add-recipe__header">

@@ -53,6 +53,11 @@ body {
   margin: 0 auto;
 }
 
+.page-view {
+  min-height: 100vh;
+  padding-block: var(--space-lg);
+}
+
 .btn {
   --_bg: var(--btn-bg, transparent);
   --_text: var(--btn-text, var(--text-display));
