@@ -1,6 +1,6 @@
 export default function RecipeCard({ title, ingredients, imageUrl }) {
   return (
-    <div className="recipe-card">
+    <article className="recipe-card">
       <img alt={title} className="recipe-card__image" src={imageUrl}></img>
       <div className="recipe-card__content">
         <h3 className="recipe-card__title">{title}</h3>
@@ -12,6 +12,6 @@ export default function RecipeCard({ title, ingredients, imageUrl }) {
           ))}
         </ul>
       </div>
-    </div>
+    </article>
   );
 }
