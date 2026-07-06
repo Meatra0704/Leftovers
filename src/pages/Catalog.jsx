@@ -19,6 +19,7 @@ export default function Catalog() {
               id={recipe.id}
               imageUrl={recipe.imageUrl}
               ingredients={recipe.ingredients}
+              isFavorite={recipe.isFavorite}
               key={recipe.id}
               title={recipe.title}
             />
