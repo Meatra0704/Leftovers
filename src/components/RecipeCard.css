@@ -37,6 +37,7 @@
 
 .recipe-card__title {
   font-family: var(--font-display);
+  color: var(--text-display);
 }
 
 .recipe-card__subtitle {
