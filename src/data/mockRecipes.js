@@ -5,11 +5,11 @@ export const mockRecipes = [
     imageUrl:
       "https://images.unsplash.com/photo-1485921325833-c519f76c4927?q=80&w=800&auto=format&fit=crop",
     ingredients: [
-      { name: "Salmon Fillet", amount: "1.5", measurement: "lb" },
-      { name: "Butter, melted", amount: "4", measurement: "tbsp" },
-      { name: "Garlic", amount: "4", measurement: "cloves" },
-      { name: "Fresh Parsley, chopped", amount: "2", measurement: "tbsp" },
-      { name: "Lemon", amount: "1", measurement: "whole" },
+      { name: "Salmon Fillet", amount: "1.5", unit: "lb" },
+      { name: "Butter, melted", amount: "4", unit: "tbsp" },
+      { name: "Garlic", amount: "4", unit: "cloves" },
+      { name: "Fresh Parsley, chopped", amount: "2", unit: "tbsp" },
+      { name: "Lemon", amount: "1", unit: "whole" },
     ],
     steps: [
       "Preheat the oven to 400°F (200°C) and line a baking sheet with foil.",
@@ -27,15 +27,15 @@ export const mockRecipes = [
     imageUrl:
       "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=800&auto=format&fit=crop",
     ingredients: [
-      { name: "Pizza Dough", amount: "1", measurement: "lb" },
+      { name: "Pizza Dough", amount: "1", unit: "lb" },
       {
         name: "San Marzano Tomatoes, crushed",
         amount: "1",
-        measurement: "cup",
+        unit: "cup",
       },
-      { name: "Fresh Mozzarella", amount: "8", measurement: "oz" },
-      { name: "Fresh Basil Leaves", amount: "1", measurement: "cup" },
-      { name: "Olive Oil", amount: "2", measurement: "tbsp" },
+      { name: "Fresh Mozzarella", amount: "8", unit: "oz" },
+      { name: "Fresh Basil Leaves", amount: "1", unit: "cup" },
+      { name: "Olive Oil", amount: "2", unit: "tbsp" },
     ],
     steps: [
       "Preheat your oven and pizza stone to 500°F (260°C) for at least 30 minutes.",
@@ -53,11 +53,11 @@ export const mockRecipes = [
     imageUrl:
       "https://images.unsplash.com/photo-1528207776546-3221869e5d48?q=80&w=800&auto=format&fit=crop",
     ingredients: [
-      { name: "All-Purpose Flour", amount: "2", measurement: "cup" },
-      { name: "Granulated Sugar", amount: "3", measurement: "tbsp" },
-      { name: "Baking Powder", amount: "2", measurement: "tsp" },
-      { name: "Buttermilk", amount: "2", measurement: "cup" },
-      { name: "Eggs", amount: "2", measurement: "whole" },
+      { name: "All-Purpose Flour", amount: "2", unit: "cup" },
+      { name: "Granulated Sugar", amount: "3", unit: "tbsp" },
+      { name: "Baking Powder", amount: "2", unit: "tsp" },
+      { name: "Buttermilk", amount: "2", unit: "cup" },
+      { name: "Eggs", amount: "2", unit: "whole" },
     ],
     steps: [
       "In a large bowl, whisk together the flour, sugar, baking powder, and a pinch of salt.",
@@ -75,11 +75,11 @@ export const mockRecipes = [
     imageUrl:
       "https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=800&auto=format&fit=crop",
     ingredients: [
-      { name: "Flank Steak, thinly sliced", amount: "1", measurement: "lb" },
-      { name: "Broccoli Florets", amount: "4", measurement: "cup" },
-      { name: "Soy Sauce", amount: "0.5", measurement: "cup" },
-      { name: "Brown Sugar", amount: "3", measurement: "tbsp" },
-      { name: "Garlic", amount: "3", measurement: "cloves" },
+      { name: "Flank Steak, thinly sliced", amount: "1", unit: "lb" },
+      { name: "Broccoli Florets", amount: "4", unit: "cup" },
+      { name: "Soy Sauce", amount: "0.5", unit: "cup" },
+      { name: "Brown Sugar", amount: "3", unit: "tbsp" },
+      { name: "Garlic", amount: "3", unit: "cloves" },
     ],
     steps: [
       "Whisk soy sauce, brown sugar, minced garlic, and a splash of water in a bowl to make the sauce.",
@@ -97,11 +97,11 @@ export const mockRecipes = [
     imageUrl:
       "https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?q=80&w=800&auto=format&fit=crop",
     ingredients: [
-      { name: "Sourdough Bread", amount: "2", measurement: "whole" },
-      { name: "Ripe Avocado", amount: "1", measurement: "whole" },
-      { name: "Red Pepper Flakes", amount: "1", measurement: "tsp" },
-      { name: "Lemon Juice", amount: "1", measurement: "tbsp" },
-      { name: "Sea Salt", amount: "1", measurement: "tsp" },
+      { name: "Sourdough Bread", amount: "2", unit: "whole" },
+      { name: "Ripe Avocado", amount: "1", unit: "whole" },
+      { name: "Red Pepper Flakes", amount: "1", unit: "tsp" },
+      { name: "Lemon Juice", amount: "1", unit: "tbsp" },
+      { name: "Sea Salt", amount: "1", unit: "tsp" },
     ],
     steps: [
       "Toast the slices of sourdough bread until golden and crisp.",
