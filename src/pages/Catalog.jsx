@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+
 import PageHeader from "../components/PageHeader";
 import RecipeCard from "../components/RecipeCard";
 import { RecipeContext, RecipeProvider } from "../context/RecipeContext";
@@ -7,12 +8,13 @@ export default function Catalog() {
   const { recipes } = useContext(RecipeContext);
 
   return (
-    <div className="container page-view">
-      <div className="catalog">
+    <main className="container page-view">
+      <section className="catalog">
         <PageHeader
           subtitle="Explore your favorite cusine"
           title="Catalog"
         ></PageHeader>
+
         <div className="recipe-grid">
           {recipes.map((recipe) => (
             <RecipeCard
@@ -25,7 +27,7 @@ export default function Catalog() {
             />
           ))}
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

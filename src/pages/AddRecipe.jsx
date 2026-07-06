@@ -1,7 +1,9 @@
 import { Plus, Trash2 } from "lucide-react";
 import React, { useContext, useState } from "react";
+
 import Button from "../components/Button";
 import { RecipeContext } from "../context/RecipeContext";
+
 import "./AddRecipe.css";
 
 export default function AddRecipe() {
@@ -113,7 +115,7 @@ export default function AddRecipe() {
   };
 
   return (
-    <div className="container page-view">
+    <main className="container page-view">
       <form className="add-recipe" onSubmit={handleSubmit}>
         <label className="add-recipe__label">
           <div className="add-recipe__header">
@@ -283,6 +285,6 @@ export default function AddRecipe() {
           Submit Recipe
         </Button>
       </form>
-    </div>
+    </main>
   );
 }
