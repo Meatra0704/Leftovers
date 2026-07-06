@@ -1,4 +1,4 @@
-import { Heart } from "lucide-react";
+import { Heart, Utensils } from "lucide-react";
 import React, { useContext } from "react";
 import { RecipeContext } from "../context/RecipeContext";
 import "./RecipeCard.css";
@@ -15,7 +15,17 @@ export default function RecipeCard({
 
   return (
     <article className="recipe-card">
-      <img alt={title} className="recipe-card__image" src={imageUrl}></img>
+      {imageUrl ? (
+        <img alt={title} className="recipe-card__image" src={imageUrl} />
+      ) : (
+        <div
+          aria-label={`Placeholder image for ${title}`}
+          className="recipe-card__image recipe-card__image--fallback"
+          role="img"
+        >
+          <Utensils aria-hidden="true" size={48} />
+        </div>
+      )}
 
       <div className="recipe-card__content">
         <h3 className="recipe-card__title">{title}</h3>
