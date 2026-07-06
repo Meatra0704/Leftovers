@@ -50,8 +50,7 @@ export const mockRecipes = [
   {
     id: "1719584100003",
     title: "Fluffy Buttermilk Pancakes",
-    imageUrl:
-      "https://images.unsplash.com/photo-1528207776546-3221869e5d48?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1587339144367-f1cacbecac82",
     ingredients: [
       { name: "All-Purpose Flour", amount: "2", unit: "cup" },
       { name: "Granulated Sugar", amount: "3", unit: "tbsp" },
