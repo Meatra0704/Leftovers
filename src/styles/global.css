@@ -60,7 +60,7 @@ body {
 
 .recipe-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: clamp(var(--space-md), 1.371rem + 0.714vw, var(--space-lg));
 }
 
