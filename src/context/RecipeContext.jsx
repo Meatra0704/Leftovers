@@ -20,8 +20,18 @@ export function RecipeProvider({ children }) {
     setRecipes([...recipes, newRecipe]);
   };
 
+  const toggleFavorite = (id) => {
+    setRecipes(
+      recipes.map((recipe) =>
+        recipe.id === id
+          ? { ...recipe, isFavorite: !recipe.isFavorite }
+          : recipe,
+      ),
+    );
+  };
+
   return (
-    <RecipeContext.Provider value={{ recipes, addRecipe }}>
+    <RecipeContext.Provider value={{ recipes, addRecipe, toggleFavorite }}>
       {children}
     </RecipeContext.Provider>
   );
