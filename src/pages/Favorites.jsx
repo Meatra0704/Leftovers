@@ -12,7 +12,7 @@ export default function Favorites() {
   const favoriteRecipes = recipes.filter((recipe) => recipe.isFavorite);
 
   return (
-    <div className="container page-view">
+    <main className="container page-view">
       <section className="favorites">
         <PageHeader
           subtitle="All your saved recipes in one place."
@@ -42,6 +42,6 @@ export default function Favorites() {
           </div>
         )}
       </section>
-    </div>
+    </main>
   );
 }
