@@ -1,6 +1,6 @@
 import { Plus, Trash2 } from "lucide-react";
 import React, { useContext, useState } from "react";
-
+import Button from "../components/Button";
 import { RecipeContext } from "../context/RecipeContext";
 import "./AddRecipe.css";
 
@@ -206,23 +206,23 @@ export default function AddRecipe() {
                 </optgroup>
               </select>
 
-              <button
-                className="btn btn--danger add-recipe__btn--remove"
+              <Button
+                className="add-recipe__btn--remove"
                 onClick={() => removeIngredientRow(ingredient.id)}
-                type="button"
+                variant="danger"
               >
                 <Trash2 size={18} />
-              </button>
+              </Button>
             </div>
           ))}
 
-          <button
-            className="btn btn--secondary add-recipe__btn"
+          <Button
+            className="add-recipe__btn"
             onClick={addIngredientRow}
-            type="button"
+            variant="secondary"
           >
             <Plus size={18} style={{ marginRight: "8px" }} /> Add Ingredient
-          </button>
+          </Button>
         </fieldset>
 
         <fieldset className="add-recipe__fieldset">
@@ -246,23 +246,23 @@ export default function AddRecipe() {
                 placeholder="Add..."
                 value={step.text}
               />
-              <button
-                className="btn btn--danger add-recipe__btn--remove"
+              <Button
+                className="add-recipe__btn--remove"
                 onClick={() => removeStepRow(step.id)}
-                type="button"
+                variant="danger"
               >
                 <Trash2 size={18} />
-              </button>
+              </Button>
             </div>
           ))}
 
-          <button
-            className="btn btn--secondary add-recipe__btn"
+          <Button
+            className="add-recipe__btn"
             onClick={addStepRow}
-            type="button"
+            variant="secondary"
           >
             <Plus size={18} style={{ marginRight: "8px" }} /> Add Step
-          </button>
+          </Button>
         </fieldset>
 
         <label className="add-recipe__label">
@@ -279,9 +279,9 @@ export default function AddRecipe() {
           />
         </label>
 
-        <button className="btn btn--primary add-recipe__btn " type="submit">
+        <Button className="add-recipe__btn " type="submit" variant="primary">
           Submit Recipe
-        </button>
+        </Button>
       </form>
     </div>
   );
