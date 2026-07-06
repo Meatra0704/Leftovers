@@ -1,8 +1,11 @@
 .recipe-card {
+  --card-radius: clamp(1.2rem, 0.971rem + 0.714vw, 2rem);
+  --card-padding: clamp(var(--space-sm), 1.371rem + 0.714vw, var(--space-md));
+
   display: flex;
   flex-direction: column;
-  padding: var(--space-md);
-  border-radius: 20px;
+  padding: var(--card-padding);
+  border-radius: var(--card-radius);
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.2);
   transition:
     transform 0.3s ease,
@@ -15,10 +18,10 @@
 }
 
 .recipe-card__image {
-  aspect-ratio: 1 / 1;
+  height: clamp(18rem, 16.286rem + 5.357vw, 24rem);
   margin-bottom: var(--space-sm);
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: clamp(0.6rem, 0.429rem + 0.536vw, 1.2rem);
 }
 
 .recipe-card__image--fallback {
