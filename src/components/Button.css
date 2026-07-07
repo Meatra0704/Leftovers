@@ -47,3 +47,10 @@
   --btn-text: var(--text-inverse);
   --btn-hover-bg: var(--palette-red-600);
 }
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-text: var(--palette-ink-500);
+  --btn-border: transparent;
+  --btn-hover-bg: transparent;
+}
