@@ -62,11 +62,16 @@
   --btn-text: var(--palette-red-500);
 }
 
-.recipe-card__icon {
-  transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
 .recipe-card__btn--favorite .recipe-card__icon {
   fill: currentColor;
-  transform: scale(1.15);
+  animation: heart 0.2s ease;
+}
+
+@keyframes heart {
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
