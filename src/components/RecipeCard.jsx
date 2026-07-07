@@ -44,7 +44,7 @@ export default function RecipeCard({
           className={`recipe-card__btn ${isFavorite ? "recipe-card__btn--favorite" : ""}`}
           onClick={() => toggleFavorite(id)}
         >
-          <Heart className="recipe-card__icon" />
+          <Heart className="recipe-card__icon" size={28} />
         </Button>
       </div>
     </article>
