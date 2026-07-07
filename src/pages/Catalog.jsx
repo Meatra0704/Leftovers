@@ -10,16 +10,17 @@ export default function Catalog() {
   return (
     <main className="container page-view">
       <section className="catalog">
-        <PageHeader
-          subtitle="Explore your favorite cusine"
-          title="Catalog"
-        ></PageHeader>
-        <input
-          onChange={(e) => setSearchText(e.target.value)}
-          type="text"
-          value={searchText}
-        ></input>
-
+        <div className="catalog__header">
+          <PageHeader
+            subtitle="Explore your favorite cusine"
+            title="Catalog"
+          ></PageHeader>
+          <input
+            onChange={(e) => setSearchText(e.target.value)}
+            type="text"
+            value={searchText}
+          ></input>
+        </div>
         <div className="recipe-grid">
           {recipes
             .filter((recipe) => {
