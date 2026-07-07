@@ -1,8 +1,11 @@
 import { Heart, Utensils } from "lucide-react";
 import React, { useContext } from "react";
-import { RecipeContext } from "../context/RecipeContext";
-import "./RecipeCard.css";
+
 import Button from "../components/Button";
+import FavoriteButton from "../components/FavoriteButton";
+import { RecipeContext } from "../context/RecipeContext";
+
+import "./RecipeCard.css";
 
 export default function RecipeCard({
   id,
@@ -40,12 +43,11 @@ export default function RecipeCard({
           ))}
         </ul>
 
-        <Button
-          className={`recipe-card__btn ${isFavorite ? "recipe-card__btn--favorite" : ""}`}
+        <FavoriteButton
+          className="recipe-card__btn"
+          isFavorite={isFavorite}
           onClick={() => toggleFavorite(id)}
-        >
-          <Heart className="recipe-card__icon" size={28} />
-        </Button>
+        ></FavoriteButton>
       </div>
     </article>
   );
