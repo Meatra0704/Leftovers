@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import PageHeader from "../components/PageHeader";
 import RecipeCard from "../components/RecipeCard";
 import { RecipeContext, RecipeProvider } from "../context/RecipeContext";
+import "./Catalog.css";
 
 export default function Catalog() {
   const { recipes } = useContext(RecipeContext);
@@ -10,12 +11,15 @@ export default function Catalog() {
   return (
     <main className="container page-view">
       <section className="catalog">
-        <div className="catalog__header">
+        <div className="catalog__wrapper">
           <PageHeader
             subtitle="Explore your favorite cusine"
+            subtitleClassName="catalog__subtitle"
             title="Catalog"
+            titleClassName="catalog__title"
           ></PageHeader>
           <input
+            className="catalog__searchBar"
             onChange={(e) => setSearchText(e.target.value)}
             type="text"
             value={searchText}
