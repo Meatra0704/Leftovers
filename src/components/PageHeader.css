@@ -1,13 +1,14 @@
 .page-header {
-    margin-bottom: var(--space-xl);
+  margin-bottom: clamp(var(--space-lg), 2.171rem + 0.714vw, var(--space-xl));
 }
 
 .page-header__title {
-    font-family: var(--font-display);
-    font-size: var(--text-lg);
-    color: var(--text-display);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--text-display);
 }
 
 .page-header__subtitle {
-    color: var(--text-body);
+  color: var(--text-body);
 }
+
