@@ -7,6 +7,10 @@
   border-radius: 20px;
 }
 
+.catalog__header {
+    margin-bottom: 0;
+}
+
 .catalog__title {
   color: var(--text-inverse);
 }
@@ -18,4 +22,5 @@
 .catalog__searchBar {
     width: 200px;
     height: 30px;
+    padding: 5px;
 }
