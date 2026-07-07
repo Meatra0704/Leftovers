@@ -12,7 +12,7 @@ export default function Catalog() {
     <main className="container page-view">
       <section className="catalog">
         <div className="catalog__wrapper">
-          <PageHeader
+          <PageHeader className="catalog__header"
             subtitle="Explore your favorite cusine"
             subtitleClassName="catalog__subtitle"
             title="Catalog"
@@ -21,6 +21,7 @@ export default function Catalog() {
           <input
             className="catalog__searchBar"
             onChange={(e) => setSearchText(e.target.value)}
+            placeholder="Search"
             type="text"
             value={searchText}
           ></input>
