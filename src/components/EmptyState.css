@@ -8,18 +8,18 @@
 }
 
 .empty-state__icon {
-  margin-bottom: var(--space-lg);
+  margin-bottom: clamp(var(--space-md), 1.371rem + 0.714vw, var(--space-lg));
   color: var(--border-subtle);
 }
 
 .empty-state__title {
-  margin: 0 0 var(--space-sm) 0;
+  margin-bottom: clamp(var(--space-xs), 0.286rem + 0.357vw, var(--space-sm));
   font-family: var(--font-display);
   font-size: var(--text-lg);
   color: var(--text-display);
 }
 
 .empty-state__text {
-  margin-bottom: var(--space-xl);
+  margin-bottom: clamp(var(--space-md), 1.143rem + 1.429vw, var(--space-xl));
   color: var(--text-body);
 }

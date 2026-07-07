@@ -54,7 +54,6 @@ body {
 }
 
 .page-view {
-  min-height: 100vh;
   padding-block: var(--space-lg);
 }
 
