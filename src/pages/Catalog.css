@@ -1,4 +1,21 @@
-.catalog__header {
+.catalog__wrapper {
   display: flex;
-  border: 1px solid black;
+  justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 30px;
+  background: var(--palette-sky-500);
+  border-radius: 20px;
+}
+
+.catalog__title {
+  color: var(--text-inverse);
+}
+
+.catalog__subtitle {
+  color: var(--text-inverse);
+}
+
+.catalog__searchBar {
+    width: 200px;
+    height: 30px;
 }
