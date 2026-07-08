@@ -75,6 +75,6 @@
 
 .recipe-card__btn {
   align-self: flex-end;
-  padding: var(--space-sm);
+  padding: clamp(0rem, -0.229rem + 0.714vw, var(--space-sm));
   margin-top: auto;
 }
