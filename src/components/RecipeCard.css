@@ -3,6 +3,7 @@
   --card-radius: clamp(1.2rem, 0.971rem + 0.714vw, 2rem);
   --card-padding: clamp(var(--space-sm), 1.371rem + 0.714vw, var(--space-md));
 
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: var(--card-padding);
@@ -43,6 +44,17 @@
 .recipe-card__title {
   font-family: var(--font-display);
   color: var(--text-display);
+}
+
+.recipe-card__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.recipe-card__link::after {
+  position: absolute;
+  inset: 0;
+  content: "";
 }
 
 .recipe-card__subtitle {
