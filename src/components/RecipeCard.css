@@ -21,7 +21,7 @@
 }
 
 .recipe-card__image {
-  height: clamp(18rem, 16.286rem + 5.357vw, 24rem);
+  aspect-ratio: 4 / 3;
   margin-bottom: var(--space-sm);
   object-fit: cover;
   border-radius: clamp(0.6rem, 0.429rem + 0.536vw, 1.2rem);
@@ -42,6 +42,12 @@
 }
 
 .recipe-card__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   font-family: var(--font-display);
   color: var(--text-display);
 }
@@ -61,8 +67,14 @@
   margin-top: var(--space-xs);
 }
 
+.recipe-card__item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .recipe-card__btn {
   align-self: flex-end;
-  padding: var(--space-sm);
+  padding: clamp(0rem, -0.229rem + 0.714vw, var(--space-sm));
   margin-top: auto;
 }
