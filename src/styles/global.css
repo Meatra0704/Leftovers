@@ -38,6 +38,9 @@
   --text-inverse: var(--palette-white);
   --text-hover: var(--palette-ink-700);
   --text-error: var(--palette-red-500);
+
+  --radius-outer: 20px;
+  --radius-inner: 12px;
 }
 
 body {
