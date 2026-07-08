@@ -1,5 +1,6 @@
 import { Heart, Utensils } from "lucide-react";
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import Button from "../components/Button";
 import FavoriteButton from "../components/FavoriteButton";
@@ -31,7 +32,11 @@ export default function RecipeCard({
       )}
 
       <div className="recipe-card__content">
-        <h3 className="recipe-card__title">{title}</h3>
+        <h3 className="recipe-card__title">
+          <Link className="recipe-card__link" to={`/recipe/${id}`}>
+            {title}
+          </Link>
+        </h3>
 
         <h4 className="recipe-card__subtitle">Main Ingredients</h4>
 
