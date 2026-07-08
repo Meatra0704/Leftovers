@@ -74,4 +74,8 @@ body {
   body {
     padding-bottom: var(--bottom-nav-height);
   }
+
+  .recipe-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 1fr));
+  }
 }
