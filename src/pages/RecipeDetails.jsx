@@ -10,9 +10,9 @@ export default function RecipeDetials() {
 
   return (
     <main>
-      <h1>
-        {currentRecipe.name}
-      </h1>
+      {/* <img alt={currentRecipe.title} src={currentRecipe.imageUrl}></img> */}
+      <h1>{currentRecipe.title}</h1>
+      {/* <p>{currentRecipe.ingredients}</p> */}
     </main>
-  )
+  );
 }
