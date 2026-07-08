@@ -10,9 +10,14 @@ export default function RecipeDetials() {
 
   return (
     <main>
-      {/* <img alt={currentRecipe.title} src={currentRecipe.imageUrl}></img> */}
+      <img alt={currentRecipe.title} src={currentRecipe.imageUrl}></img>
       <h1>{currentRecipe.title}</h1>
-      {/* <p>{currentRecipe.ingredients}</p> */}
+      <h2>Ingredients</h2>
+      <ul>
+        {currentRecipe.ingredients.map((ing) => (
+          <li key={ing.id}>{ing.amount} {ing.unit} of {ing.name}</li>
+        ))}
+      </ul>
     </main>
   );
 }
