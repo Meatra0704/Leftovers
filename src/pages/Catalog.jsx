@@ -12,7 +12,8 @@ export default function Catalog() {
     <main className="container page-view">
       <section className="catalog">
         <div className="catalog__wrapper">
-          <PageHeader className="catalog__header"
+          <PageHeader
+            className="catalog__header"
             subtitle="Explore your favorite cusine"
             subtitleClassName="catalog__subtitle"
             title="Catalog"
