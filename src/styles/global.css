@@ -38,6 +38,8 @@
   --text-inverse: var(--palette-white);
   --text-hover: var(--palette-ink-700);
   --text-error: var(--palette-red-500);
+
+  --gutter: clamp(var(--space-md), 1.371rem + 0.714vw, var(--space-lg));
 }
 
 body {
@@ -49,8 +51,8 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1400px;
-  padding: 0 var(--space-lg);
+  max-width: 1440px;
+  padding: 0 var(--gutter);
   margin: 0 auto;
 }
 
@@ -61,7 +63,7 @@ body {
 .recipe-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
-  gap: clamp(var(--space-md), 1.371rem + 0.714vw, var(--space-lg));
+  gap: var(--gutter);
 }
 
 @media (max-width: 768px) {
