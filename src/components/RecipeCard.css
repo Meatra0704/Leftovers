@@ -1,19 +1,21 @@
 .recipe-card {
+  --card-color: var(--bg-primary);
   --card-radius: clamp(1.2rem, 0.971rem + 0.714vw, 2rem);
   --card-padding: clamp(var(--space-sm), 1.371rem + 0.714vw, var(--space-md));
 
   display: flex;
   flex-direction: column;
   padding: var(--card-padding);
+  background-color: var(--card-color);
   border-radius: var(--card-radius);
-  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 5px 1px oklch(from var(--card-color) calc(l - 0.2) c h);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
 .recipe-card:hover {
-  box-shadow: 6px 6px 10px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 2px 7px 2px oklch(from var(--card-color) calc(l - 0.25) c h);
   transform: scale(1.01);
 }
 
