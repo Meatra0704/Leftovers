@@ -1,11 +1,12 @@
 .nav {
+  --nav-border: var(--bg-secondary);
+
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: var(--space-md) 0;
+  padding: clamp(1rem, 0.829rem + 0.536vw, var(--space-md)) 0;
   background-color: var(--bg-primary);
-  border-bottom: 1px solid var(--border-subtle);
-  box-shadow: 0px 6px 6px -5px var(--border-subtle);
+  box-shadow: 0 2px 4px 0 oklch(from var(--nav-border) calc(l - 0.05) c h);
 }
 
 .nav__inner {
@@ -73,10 +74,6 @@
     display: block;
   }
 
-  .nav {
-    padding: var(--space-sm) 0;
-  }
-
   .nav__list {
     position: fixed;
     bottom: 0;
@@ -95,7 +92,6 @@
     --link-color: var(--text-body);
 
     flex-direction: column;
-    gap: 0.4rem;
     font-size: var(--text-sm);
     text-decoration: none;
   }
