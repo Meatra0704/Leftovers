@@ -1,6 +1,6 @@
 .recipe-card {
   --card-color: var(--bg-primary);
-  --card-radius: clamp(1.2rem, 0.971rem + 0.714vw, 2rem);
+  --card-radius: var(--radius-outer);
   --card-padding: clamp(var(--space-sm), 1.371rem + 0.714vw, var(--space-md));
 
   display: flex;
@@ -23,7 +23,7 @@
   height: clamp(18rem, 16.286rem + 5.357vw, 24rem);
   margin-bottom: var(--space-sm);
   object-fit: cover;
-  border-radius: clamp(0.6rem, 0.429rem + 0.536vw, 1.2rem);
+  border-radius: var(--radius-inner);
 }
 
 .recipe-card__image--fallback {

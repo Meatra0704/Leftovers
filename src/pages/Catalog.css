@@ -6,7 +6,7 @@
   padding: 20px;
   margin-bottom: 30px;
   background: var(--palette-sky-500);
-  border-radius: 20px;
+  border-radius: var(--radius-outer);
 }
 
 .catalog__header {
@@ -29,5 +29,5 @@
   padding: 8px 5px;
   outline: 0;
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--radius-inner);
 }
