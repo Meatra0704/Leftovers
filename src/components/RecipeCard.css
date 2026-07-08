@@ -42,6 +42,12 @@
 }
 
 .recipe-card__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   font-family: var(--font-display);
   color: var(--text-display);
 }
@@ -59,6 +65,12 @@
 
 .recipe-card__subtitle {
   margin-top: var(--space-xs);
+}
+
+.recipe-card__item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .recipe-card__btn {
