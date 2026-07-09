@@ -6,6 +6,7 @@ import AddRecipe from "./pages/AddRecipe";
 import Catalog from "./pages/Catalog";
 import Favorites from "./pages/Favorites";
 import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 import RecipeDetails from "./pages/RecipeDetails";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route element={<RecipeDetails />} path="/recipes/:id" />
           <Route element={<AddRecipe />} path="/add" />
           <Route element={<Favorites />} path="/favorites" />
+          <Route element={<NotFound />} path="*" />
         </Routes>
       </Router>
     </RecipeProvider>
