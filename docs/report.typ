@@ -78,3 +78,15 @@ eliminate the risk of version control issues. To further reduce conflicts, we
 try to minimize editing the same file simultaneously. Code was only merged into
 `main` at the end of each development phase to ensure that the codebase was
 stable before starting new features.
+
+= Core React Concepts Implemented
+
+== State and Side Effects
+
+We used the `useState` hook to handle data that changes while the user interacts
+with the app. For instance, it tracks what a user types into the `Add Recipe`
+form and controls the animations state on our favorite buttons.
+
+For saving data, `useState` is used to load the initial data once when the app
+first opens. From there, `useEffect` hook is used to watch and update the
+global recipe list when new recipes are added or favorited.
