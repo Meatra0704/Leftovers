@@ -1,0 +1,33 @@
+.catalog__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 30px;
+  background: var(--palette-sky-500);
+  border-radius: var(--radius-outer);
+}
+
+.catalog__header {
+  flex: 1 1 60%;
+  margin-bottom: 0;
+}
+
+.catalog__title {
+  color: var(--text-inverse);
+}
+
+.catalog__subtitle {
+  color: var(--text-inverse);
+}
+
+.catalog__searchBar {
+  flex: 1 1 30%;
+  width: 200px;
+  height: 30px;
+  padding: 8px 10px;
+  outline: 0;
+  border: 0;
+  border-radius: var(--radius-inner);
+}
