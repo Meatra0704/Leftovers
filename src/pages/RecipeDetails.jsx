@@ -9,24 +9,28 @@ export default function RecipeDetials() {
   const currentRecipe = recipes.find((recipe) => recipe.id === id);
 
   return (
-    <main>
-      <section>
-        <img alt={currentRecipe.title} src={currentRecipe.imageUrl}></img>
-      <h1>{currentRecipe.title}</h1>
-      <h2>Ingredients</h2>
-      <ul>
-        {currentRecipe.ingredients.map((ing) => (
-          <li key={ing.id}>
-            {ing.amount} {ing.unit} of {ing.name}
-          </li>
-        ))}
-      </ul>
-      <h2>Steps</h2>
-      <ol>
-        {currentRecipe.steps.map((step) => (
-          <li key={step.id}>{step}</li>
-        ))}
-      </ol>
+    <main className="container page-view">
+      <section className="recipe-detail">
+        <h1 className="recipe-detail__title">{currentRecipe.title}</h1>
+        <img
+          alt={currentRecipe.title}
+          className="recipe-detail__image"
+          src={currentRecipe.imageUrl}
+        ></img>
+        <h2 className="recipe-detail__ingredient-title">Ingredients</h2>
+        <ul className="recipe-detail__ingredient-list">
+          {currentRecipe.ingredients.map((ing) => (
+            <li key={ing.id}>
+              {ing.amount} {ing.unit} of {ing.name}
+            </li>
+          ))}
+        </ul>
+        <h2 className="recipe-detail__step-title">Steps</h2>
+        <ol className="recipe-detial__step-list">
+          {currentRecipe.steps.map((step) => (
+            <li key={step.id}>{step}</li>
+          ))}
+        </ol>
       </section>
     </main>
   );
