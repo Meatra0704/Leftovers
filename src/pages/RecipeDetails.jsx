@@ -10,7 +10,8 @@ export default function RecipeDetials() {
 
   return (
     <main>
-      <img alt={currentRecipe.title} src={currentRecipe.imageUrl}></img>
+      <section>
+        <img alt={currentRecipe.title} src={currentRecipe.imageUrl}></img>
       <h1>{currentRecipe.title}</h1>
       <h2>Ingredients</h2>
       <ul>
@@ -26,6 +27,7 @@ export default function RecipeDetials() {
           <li key={step.id}>{step}</li>
         ))}
       </ol>
+      </section>
     </main>
   );
 }
