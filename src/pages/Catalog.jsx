@@ -1,12 +1,18 @@
 import React, { useContext, useState } from "react";
 import PageHeader from "../components/PageHeader";
 import RecipeCard from "../components/RecipeCard";
+import RecipeGrid from "../components/RecipeGrid";
 import { RecipeContext, RecipeProvider } from "../context/RecipeContext";
+
 import "./Catalog.css";
 
 export default function Catalog() {
   const { recipes } = useContext(RecipeContext);
   const [searchText, setSearchText] = useState("");
+
+  const filteredRecipes = recipes.filter((recipe) =>
+    recipe.title.toLowerCase().includes(searchText.toLowerCase()),
+  );
 
   return (
     <main className="container page-view">
@@ -19,6 +25,7 @@ export default function Catalog() {
             title="Catalog"
             titleClassName="catalog__title"
           ></PageHeader>
+
           <input
             className="catalog__searchBar"
             onChange={(e) => setSearchText(e.target.value)}
@@ -27,25 +34,8 @@ export default function Catalog() {
             value={searchText}
           ></input>
         </div>
-        <div className="recipe-grid">
-          {recipes
-            .filter((recipe) => {
-              const matchSearch = recipe.title
-                .toLowerCase()
-                .includes(searchText.toLowerCase());
-              return matchSearch;
-            })
-            .map((recipe) => (
-              <RecipeCard
-                id={recipe.id}
-                imageUrl={recipe.imageUrl}
-                ingredients={recipe.ingredients}
-                isFavorite={recipe.isFavorite}
-                key={recipe.id}
-                title={recipe.title}
-              />
-            ))}
-        </div>
+
+        <RecipeGrid recipes={filteredRecipes} />
       </section>
     </main>
   );
