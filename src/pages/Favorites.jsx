@@ -4,6 +4,7 @@ import React, { useContext } from "react";
 import EmptyState from "../components/EmptyState";
 import PageHeader from "../components/PageHeader";
 import RecipeCard from "../components/RecipeCard";
+import RecipeGrid from "../components/RecipeGrid";
 import { RecipeContext } from "../context/RecipeContext";
 
 export default function Favorites() {
@@ -28,18 +29,7 @@ export default function Favorites() {
             title="No favorites yet"
           />
         ) : (
-          <div className="recipe-grid">
-            {favoriteRecipes.map((recipe) => (
-              <RecipeCard
-                id={recipe.id}
-                imageUrl={recipe.imageUrl}
-                ingredients={recipe.ingredients}
-                isFavorite={recipe.isFavorite}
-                key={recipe.id}
-                title={recipe.title}
-              />
-            ))}
-          </div>
+          <RecipeGrid recipes={favoriteRecipes}></RecipeGrid>
         )}
       </section>
     </main>
