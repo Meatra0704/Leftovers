@@ -57,3 +57,24 @@
     ),
   ),
 )
+
+= Approach and Workflow
+
+To manage development efficiently and prevent merge conflicts, we divided the
+project into two distinct areas of responsibility based on architectural
+boundaries.
+
+- *Routing and Global State:* One member was responsible for setting up
+  `react-router-dom`, defining the global `RecipeContext`, scaffolding the core
+  layouts (like the navigation), and abstracting reusable UI elements.
+- *Data Integration and Interface:* The other member handled data entry and
+  rendering, which involved managing local component state for the `AddRecipe`
+  form, passing that data to the global context, and writing the logic to map,
+  filter, and render the recipe arrays on the Catalog and Favorites pages.
+
+All features, fixes, and, refactors are done separately in their own respective
+branch (e.g., `feat/routing` created from the `main` branch) in order to
+eliminate the risk of version control issues. To further reduce conflicts, we
+try to minimize editing the same file simultaneously. Code was only merged into
+`main` at the end of each development phase to ensure that the codebase was
+stable before starting new features.
