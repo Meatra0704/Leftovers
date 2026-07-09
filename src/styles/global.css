@@ -62,12 +62,6 @@ body {
   padding-block: var(--space-lg);
 }
 
-.recipe-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
-  gap: var(--gutter);
-}
-
 @media (max-width: 768px) {
   :root {
     --bottom-nav-height: calc(4.8rem + env(safe-area-inset-bottom));
@@ -77,7 +71,4 @@ body {
     padding-bottom: var(--bottom-nav-height);
   }
 
-  .recipe-grid {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 1fr));
-  }
 }
