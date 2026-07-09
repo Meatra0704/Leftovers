@@ -15,9 +15,17 @@ export default function RecipeDetials() {
       <h2>Ingredients</h2>
       <ul>
         {currentRecipe.ingredients.map((ing) => (
-          <li key={ing.id}>{ing.amount} {ing.unit} of {ing.name}</li>
+          <li key={ing.id}>
+            {ing.amount} {ing.unit} of {ing.name}
+          </li>
         ))}
       </ul>
+      <h2>Steps</h2>
+      <ol>
+        {currentRecipe.steps.map((step) => (
+          <li key={step.id}>{step}</li>
+        ))}
+      </ol>
     </main>
   );
 }
