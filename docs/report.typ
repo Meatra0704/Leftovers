@@ -45,9 +45,9 @@
 
 #show: template.with(
   title: "Interactive Recipe Book Project: Technical Report",
-  project-name: "Recipe Book",
-  project-url: "github.com/Meatra0704/",
-  live-url: "github",
+  project-name: "Leftovers",
+  project-url: "github.com/Meatra0704/Leftovers",
+  live-url: "meatra0704.github.io/Leftovers/",
   authors: (
     (
       name: "Sakphea Seng",
