@@ -1,25 +1,30 @@
 import { Heart } from "lucide-react";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import EmptyState from "../components/EmptyState";
-import PageHeader from "../components/PageHeader";
-import RecipeCard from "../components/RecipeCard";
+import PageBanner from "../components/PageBanner";
 import RecipeGrid from "../components/RecipeGrid";
 import { RecipeContext } from "../context/RecipeContext";
 
 export default function Favorites() {
   const { recipes } = useContext(RecipeContext);
+  const [searchText, setSearchText] = useState("");
 
-  const favoriteRecipes = recipes.filter((recipe) => recipe.isFavorite);
+  const favoriteRecipes = recipes
+    .filter((recipe) => recipe.isFavorite)
+    .filter((recipe) =>
+      recipe.title.toLowerCase().includes(searchText.toLowerCase()),
+    );
 
   return (
     <main className="container page-view">
       <section className="favorites">
-        <PageHeader
+        <PageBanner
+          onSearchChange={setSearchText}
+          searchValue={searchText}
           subtitle="All your saved recipes in one place."
           title="Your Favorites"
-        ></PageHeader>
-
+        />
         {favoriteRecipes.length === 0 ? (
           <EmptyState
             icon={Heart}
@@ -29,7 +34,7 @@ export default function Favorites() {
             title="No favorites yet"
           />
         ) : (
-          <RecipeGrid recipes={favoriteRecipes}></RecipeGrid>
+          <RecipeGrid recipes={favoriteRecipes} />
         )}
       </section>
     </main>
