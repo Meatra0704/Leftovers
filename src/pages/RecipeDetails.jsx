@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { RecipeContext, RecipeProvider } from "../context/RecipeContext";
 import "./RecipeDetails.css";
-import { ListChecks, ShoppingBasket } from "lucide-react";
+import { Frown, ListChecks, ShoppingBasket } from "lucide-react";
+import EmptyState from "../components/EmptyState";
 
 export default function RecipeDetials() {
   const { id } = useParams();
@@ -10,7 +11,18 @@ export default function RecipeDetials() {
 
   const currentRecipe = recipes.find((recipe) => recipe.id === id);
 
-  
+  if (!currentRecipe) {
+    return (
+      <EmptyState
+        icon={Frown}
+        linkText="Browse Catalog"
+        linkTo="/recipes"
+        message="Try something else."
+        title="Couldn't find the food"
+      />
+    );
+  }
+
   return (
     <main className="container page-view">
       <section className="recipe-detail">
@@ -25,7 +37,7 @@ export default function RecipeDetials() {
         <div className="recipe-detail__box">
           <header className="recipe-detail__box-header recipe-detail__box-header--left">
             <span className="icon-basket">
-              <ShoppingBasket className="recipe-detail__svg"/>
+              <ShoppingBasket className="recipe-detail__svg" />
             </span>
             <h2 className="recipe-detail__ingredient-title">Ingredients</h2>
           </header>
@@ -40,7 +52,7 @@ export default function RecipeDetials() {
         <div className="recipe-detail__step-box">
           <header className="recipe-detail__step-header">
             <span className="icon-list">
-              <ListChecks  className="recipe-detail__svg"/>
+              <ListChecks className="recipe-detail__svg" />
             </span>
             <h2 className="recipe-detail__step-title">Directions</h2>
           </header>
