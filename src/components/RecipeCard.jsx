@@ -14,6 +14,7 @@ export default function RecipeCard({
   ingredients,
   imageUrl,
   isFavorite,
+  hideFavorite = false,
   className,
 }) {
   const { toggleFavorite } = useContext(RecipeContext);
@@ -49,11 +50,13 @@ export default function RecipeCard({
           ))}
         </ul>
 
-        <FavoriteButton
-          className="recipe-card__btn"
-          isFavorite={isFavorite}
-          onClick={() => toggleFavorite(id)}
-        ></FavoriteButton>
+        {!hideFavorite && (
+          <FavoriteButton
+            className="recipe-card__btn"
+            isFavorite={isFavorite}
+            onClick={() => toggleFavorite(id)}
+          ></FavoriteButton>
+        )}
       </div>
     </article>
   );
