@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import PageHeader from "../components/PageHeader";
-import RecipeCard from "../components/RecipeCard";
+
+import PageBanner from "../components/PageBanner";
 import RecipeGrid from "../components/RecipeGrid";
-import { RecipeContext, RecipeProvider } from "../context/RecipeContext";
+import { RecipeContext } from "../context/RecipeContext";
 
 import "./Catalog.css";
 
@@ -17,24 +17,12 @@ export default function Catalog() {
   return (
     <main className="container page-view">
       <section className="catalog">
-        <div className="catalog__wrapper">
-          <PageHeader
-            className="catalog__header"
-            subtitle="Explore your favorite cusine"
-            subtitleClassName="catalog__subtitle"
-            title="Catalog"
-            titleClassName="catalog__title"
-          ></PageHeader>
-
-          <input
-            className="catalog__searchBar"
-            onChange={(e) => setSearchText(e.target.value)}
-            placeholder="Search"
-            type="text"
-            value={searchText}
-          ></input>
-        </div>
-
+        <PageBanner
+          onSearchChange={setSearchText}
+          searchValue={searchText}
+          subtitle="Explore your favorite cuisine"
+          title="Catalog"
+        />
         <RecipeGrid recipes={filteredRecipes} />
       </section>
     </main>
