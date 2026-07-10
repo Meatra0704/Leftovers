@@ -101,6 +101,22 @@ animation would incorrectly play every time an already favorited recipe
 loads on page refresh, since it would just be applying the same styling
 as a real click.
 
+== DOM Access
+
+To enhance the home page experience, we implemented a recipe carousel. This
+required two React hooks to handle performance and direct DOM reads:
+
+- `useMemo`: Used to stabilize the random selection of featured recipes. By
+  memoizing the randomized array, we prevent the recipes from re-shuffling on
+  every local state change (such as the carousel's progress bar updating). The
+  selection remains locked while users are actively interacting with the
+  page.
+
+- `useRef`: Attached directly to the carousel's scrollable container. This allows
+  us to read native DOM properties (scrollLeft, scrollWidth, and clientWidth)
+  to calculate the exact horizontal scroll percentage and map it to a visual
+  progress bar.
+
 = Technical Challenges and Solutions
 
 While we did not encounter many critical challenges, a few design decisions
