@@ -14,11 +14,12 @@ export default function RecipeCard({
   ingredients,
   imageUrl,
   isFavorite,
+  className,
 }) {
   const { toggleFavorite } = useContext(RecipeContext);
 
   return (
-    <article className="recipe-card">
+    <article className={`recipe-card ${className}`}>
       {imageUrl ? (
         <img alt={title} className="recipe-card__image" src={imageUrl} />
       ) : (
