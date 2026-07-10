@@ -8,11 +8,14 @@ import Favorites from "./pages/Favorites";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import RecipeDetails from "./pages/RecipeDetails";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <RecipeProvider>
       <Router>
+        <ScrollToTop/>
+
         <Navbar />
 
         <Routes>
