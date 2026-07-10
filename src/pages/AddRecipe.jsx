@@ -97,7 +97,7 @@ export default function AddRecipe() {
       id: Date.now().toString(),
       title: title.trim(),
       ingredients: ingredients,
-      steps: steps,
+      steps: steps.map((step) => step.text.trim()),
       imageUrl: imageUrl.trim(),
     };
 
