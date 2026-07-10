@@ -29,6 +29,9 @@
               nodejs_24
               biome
 
+              typst
+              tinymist
+
               (writeShellApplication {
                 name = "clamp";
                 runtimeInputs = [
