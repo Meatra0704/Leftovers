@@ -29,7 +29,7 @@
 
 /* Ingredient */
 
-.recipe-detail__ingredient-box {
+.recipe-detail__box {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -43,6 +43,13 @@
   gap: 10px;
   justify-content: space-between;
   padding: 15px clamp(4.5rem, 5.214rem + -2.232vw, 2rem);
+}
+
+.recipe-detail__step-header {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 15px 50px;
 }
 
 .icon-basket {
@@ -86,12 +93,7 @@
   border-radius: var(--radius-outer);
 }
 
-.recipe-detail__step-header {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  padding: 15px 50px;
-}
+
 
 .icon-list {
   align-self: center;

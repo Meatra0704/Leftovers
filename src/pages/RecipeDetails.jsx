@@ -10,6 +10,7 @@ export default function RecipeDetials() {
 
   const currentRecipe = recipes.find((recipe) => recipe.id === id);
 
+  
   return (
     <main className="container page-view">
       <section className="recipe-detail">
@@ -21,10 +22,10 @@ export default function RecipeDetials() {
           ></img>
           <h1 className="recipe-detail__title">{currentRecipe.title}</h1>
         </div>
-        <div className="recipe-detail__ingredient-box">
-          <header className="recipe-detail__ingredient-header">
+        <div className="recipe-detail__box">
+          <header className="recipe-detail__box-header recipe-detail__box-header--left">
             <span className="icon-basket">
-              <ShoppingBasket size={35}/>
+              <ShoppingBasket className="recipe-detail__svg"/>
             </span>
             <h2 className="recipe-detail__ingredient-title">Ingredients</h2>
           </header>
@@ -39,18 +40,18 @@ export default function RecipeDetials() {
         <div className="recipe-detail__step-box">
           <header className="recipe-detail__step-header">
             <span className="icon-list">
-              <ListChecks size={35} />
+              <ListChecks  className="recipe-detail__svg"/>
             </span>
             <h2 className="recipe-detail__step-title">Directions</h2>
           </header>
           <ol className="recipe-detail__step-list">
             {currentRecipe.steps.map((step, index) => (
-              <div className="recipe-detail__step-item" key={index}>
+              <li className="recipe-detail__step-item" key={index}>
                 <h2 className="recipe-detail__step-item-title">
                   Step {index + 1}
                 </h2>
                 <p key={step.id}>{step}</p>
-              </div>
+              </li>
             ))}
           </ol>
         </div>
