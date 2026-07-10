@@ -4,6 +4,7 @@
 
   /* Colors */
   --palette-white: #ffffff;
+  --palette-cream-50: #fff7e8;
   --palette-cream-100: #f8f0e3;
   --palette-cream-300: #f4e8d4;
   --palette-sky-100: #e3ebf8;
@@ -70,5 +71,4 @@ body {
   body {
     padding-bottom: var(--bottom-nav-height);
   }
-
 }

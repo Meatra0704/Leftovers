@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useContext, useMemo } from "react";
+
 import Button from "../components/Button";
 import PageHeader from "../components/PageHeader";
+import RecipeCarousel from "../components/RecipeCarousel";
+import { RecipeContext } from "../context/RecipeContext";
 
 import "./Home.css";
 
 export default function Home() {
+  const { recipes } = useContext(RecipeContext);
+
+  const maxCarousel = 6;
+  const featuredRecipes = useMemo(() => {
+    return [...recipes].sort(() => 0.5 - Math.random()).slice(0, maxCarousel);
+  }, [recipes]);
+
   return (
     <main className="home">
       <section className="hero">
@@ -30,6 +40,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <RecipeCarousel
+        className="container"
+        linkTo="/recipes"
+        recipes={featuredRecipes}
+        title="Featured Recipes"
+      />
     </main>
   );
 }
