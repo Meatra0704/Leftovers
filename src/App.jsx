@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import ScrollToTop from "./components/ScrollToTop";
 import { RecipeProvider } from "./context/RecipeContext";
 import AddRecipe from "./pages/AddRecipe";
 import Catalog from "./pages/Catalog";
@@ -8,13 +9,12 @@ import Favorites from "./pages/Favorites";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import RecipeDetails from "./pages/RecipeDetails";
-import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <RecipeProvider>
-      <Router>
-        <ScrollToTop/>
+      <Router basename="/Leftovers">
+        <ScrollToTop />
 
         <Navbar />
 
