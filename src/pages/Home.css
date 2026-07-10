@@ -1,3 +1,7 @@
+.home {
+  padding-bottom: 20vh;
+}
+
 .hero {
   padding: clamp(var(--space-xl), 1.371rem + 5.714vw, 9.6rem) 0;
   background-color: var(--bg-secondary);
