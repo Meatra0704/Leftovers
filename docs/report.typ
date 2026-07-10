@@ -90,3 +90,19 @@ form and controls the animations state on our favorite buttons.
 For saving data, `useState` is used to load the initial data once when the app
 first opens. From there, `useEffect` hook is used to watch and update the
 global recipe list when new recipes are added or favorited.
+
+= Technical Challenges and Solutions
+
+While we did not encounter many critical challenges, a few design decisions
+were shaped directly by constraints in our choosen tools.
+
+== Image Storage via `localStorage`
+
+Since our persistence layer is `localStorage`, which only stores string data
+with limited storage (typically 5-10MB per browser), we could not accept
+direct image file uploads for the `AddRecipe` form. Storing uploaded images
+would require base64-encoding them, which inflates file size by roughly a
+third and risks exceeding the limit after only a few recipes are added. To
+work around this, recipes are added using an image URL field instead, so
+`localStorage` only ever persists lightweight strings regardless of how many
+recipes a user saves.
