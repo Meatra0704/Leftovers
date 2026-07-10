@@ -13,7 +13,7 @@ import RecipeDetails from "./pages/RecipeDetails";
 function App() {
   return (
     <RecipeProvider>
-      <Router basename="/Leftovers">
+      <Router basename={import.meta.env.BASE_URL}>
         <ScrollToTop />
 
         <Navbar />

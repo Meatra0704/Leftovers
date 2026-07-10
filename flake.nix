@@ -17,12 +17,50 @@
           system:
           f {
             pkgs = import nixpkgs { inherit system; };
+            inherit system;
           }
         );
     in
     {
+      packages = forEachSupportedSystem (
+        { pkgs, ... }:
+        {
+          default = pkgs.buildNpmPackage {
+            pname = "leftovers";
+            version = "1.0.0";
+            src = ./.;
+            npmDepsHash = "sha256-VeyhCjO4Px800xGF4oN0KCvwax+wLUG/lUmXxsZy734=";
+            buildInputs = [ pkgs.nodejs_24 ];
+            buildPhase = ''
+              npm run build -- --base=/
+            '';
+
+            installPhase = ''
+              mkdir -p $out/bin $out/share/leftovers
+              cp -r dist/* $out/share/leftovers/
+
+              cat > $out/bin/leftovers <<EOF
+              #!${pkgs.bash}/bin/bash
+              exec ${pkgs.serve}/bin/serve -s $out/share/leftovers -l 3000
+              EOF
+              chmod +x $out/bin/leftovers
+            '';
+          };
+        }
+      );
+
+      apps = forEachSupportedSystem (
+        { system, ... }:
+        {
+          default = {
+            type = "app";
+            program = "${self.packages.${system}.default}/bin/leftovers";
+          };
+        }
+      );
+
       devShells = forEachSupportedSystem (
-        { pkgs }:
+        { pkgs, ... }:
         {
           default = pkgs.mkShellNoCC {
             packages = with pkgs; [
