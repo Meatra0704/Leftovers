@@ -35,7 +35,7 @@ export default function RecipeCard({
 
       <div className="recipe-card__content">
         <h3 className="recipe-card__title">
-          <Link className="recipe-card__link" to={`/recipe/${id}`}>
+          <Link className="recipe-card__link" to={`/recipes/${id}`}>
             {title}
           </Link>
         </h3>

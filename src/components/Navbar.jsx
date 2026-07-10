@@ -9,7 +9,7 @@ export default function Navbar() {
     <nav className="nav">
       <div className="container nav__inner">
         <Link className="nav__logo" to="/">
-          Home
+          Leftovers
         </Link>
 
         <ul className="nav__list">
