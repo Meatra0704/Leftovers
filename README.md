@@ -6,6 +6,20 @@ hand-drawn note in the margin.
 
 ![Leftovers Preview](./.github/assets/showcase.png)
 
+<!-- TOC -->
+
+## Table of Contents
+
+- [Preview](#preview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Running Locally](#running-locally)
+- [Project Structure](#project-structure)
+- [Documentation](#documentation)
+- [License](#license)
+
+<!-- /TOC -->
+
 ## Preview
 
 [View Live Demo](https://Meatra0704.github.io/Leftovers)
@@ -43,8 +57,8 @@ This builds and serves the app at `http://localhost:3000`.
 Requires Node.js 24+.
 
 ```sh
-git clone https://github.com/reponame/project.git
-cd project
+git clone https://github.com/Meatra0704/Leftovers.git
+cd Leftovers
 npm install
 npm run dev
 ```
@@ -66,3 +80,7 @@ src/
 
 A project report covering approach, React concepts used, and challenges
 faced is available at [`docs/report.typ`](./docs/report.typ).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). Copyright (c) 2026 Cal & Meatra.
