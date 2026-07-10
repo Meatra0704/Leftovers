@@ -33,7 +33,7 @@ If you have [Nix](https://nixos.org/download) installed with flakes enabled,
 run the app directly without cloning or installing anything manually:
 
 ```sh
-nix run github:reponame/project
+nix run github:Meatra0704/Leftovers
 ```
 
 This builds and serves the app at `http://localhost:3000`.
