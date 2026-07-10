@@ -1,0 +1,24 @@
+.page-banner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 30px;
+  background: var(--palette-sky-500);
+  border-radius: var(--radius-outer);
+}
+
+.page-banner__header {
+  flex: 1 1 60%;
+  margin-bottom: 0;
+}
+
+.page-banner__title,
+.page-banner__subtitle {
+  color: var(--text-inverse);
+}
+
+.page-banner__search {
+  flex: 1 1 30%;
+}

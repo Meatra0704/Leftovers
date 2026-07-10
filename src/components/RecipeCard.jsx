@@ -1,5 +1,6 @@
 import { Heart, Utensils } from "lucide-react";
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import Button from "../components/Button";
 import FavoriteButton from "../components/FavoriteButton";
@@ -13,11 +14,13 @@ export default function RecipeCard({
   ingredients,
   imageUrl,
   isFavorite,
+  hideFavorite = false,
+  className,
 }) {
   const { toggleFavorite } = useContext(RecipeContext);
 
   return (
-    <article className="recipe-card">
+    <article className={`recipe-card ${className}`}>
       {imageUrl ? (
         <img alt={title} className="recipe-card__image" src={imageUrl} />
       ) : (
@@ -31,7 +34,11 @@ export default function RecipeCard({
       )}
 
       <div className="recipe-card__content">
-        <h3 className="recipe-card__title">{title}</h3>
+        <h3 className="recipe-card__title">
+          <Link className="recipe-card__link" to={`/recipe/${id}`}>
+            {title}
+          </Link>
+        </h3>
 
         <h4 className="recipe-card__subtitle">Main Ingredients</h4>
 
@@ -43,11 +50,13 @@ export default function RecipeCard({
           ))}
         </ul>
 
-        <FavoriteButton
-          className="recipe-card__btn"
-          isFavorite={isFavorite}
-          onClick={() => toggleFavorite(id)}
-        ></FavoriteButton>
+        {!hideFavorite && (
+          <FavoriteButton
+            className="recipe-card__btn"
+            isFavorite={isFavorite}
+            onClick={() => toggleFavorite(id)}
+          ></FavoriteButton>
+        )}
       </div>
     </article>
   );

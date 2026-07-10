@@ -1,0 +1,17 @@
+.search-bar {
+  width: 200px;
+  height: 30px;
+  padding: 8px 10px;
+  outline: 0;
+  background-color: var(--palette-white);
+  border: 2px solid transparent;
+  border-radius: var(--radius-inner);
+}
+
+.search-bar::placeholder {
+  color: var(--text-body);
+}
+
+.search-bar:focus {
+  border-color: var(--palette-sky-600);
+}
