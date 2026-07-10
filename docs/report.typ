@@ -83,13 +83,23 @@ stable before starting new features.
 
 == State and Side Effects
 
-We used the `useState` hook to handle data that changes while the user interacts
-with the app. For instance, it tracks what a user types into the `Add Recipe`
-form and controls the animations state on our favorite buttons.
+`useState` is used for two kinds of state: data that needs to be saved
+between visits, and temporary UI state that doesn't.
 
-For saving data, `useState` is used to load the initial data once when the app
-first opens. From there, `useEffect` hook is used to watch and update the
-global recipe list when new recipes are added or favorited.
+For saved data, `RecipeContext` loads recipes from `localStorage` the
+moment the app starts, so the user's saved recipes appear immediately
+instead of flashing default data first. A `useEffect` then watches the
+recipe list and automatically re-saves it to `localStorage` whenever a
+recipe is added or favorited, so we don't have to manually save data
+in multiple places.
+
+For temporary state, `useState` tracks what the user types into the
+`AddRecipe` form, and also controls whether the favorite button's
+animation is currently playing. This animation state is kept separate
+from whether a recipe is actually favorited; otherwise, the heart
+animation would incorrectly play every time an already favorited recipe
+loads on page refresh, since it would just be applying the same styling
+as a real click.
 
 = Technical Challenges and Solutions
 
