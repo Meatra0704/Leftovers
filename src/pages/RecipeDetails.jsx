@@ -34,14 +34,14 @@ export default function RecipeDetials() {
           ></img>
           <h1 className="recipe-detail__title">{currentRecipe.title}</h1>
         </div>
-        <div className="recipe-detail__box">
+        <div className="recipe-detail__box recipe-detail__box--align-left">
           <header className="recipe-detail__box-header recipe-detail__box-header--left">
-            <span className="icon-basket">
+            <span className="icon-color">
               <ShoppingBasket className="recipe-detail__svg" />
             </span>
-            <h2 className="recipe-detail__ingredient-title">Ingredients</h2>
+            <h2 className="recipe-detail__list-title">Ingredients</h2>
           </header>
-          <ul className="recipe-detail__ingredient-list">
+          <ul className="recipe-detail__list recipe-detail__list--padding-left">
             {currentRecipe.ingredients.map((ing) => (
               <li key={ing.id}>
                 {ing.amount} {ing.unit} of {ing.name}
@@ -49,16 +49,16 @@ export default function RecipeDetials() {
             ))}
           </ul>
         </div>
-        <div className="recipe-detail__step-box">
-          <header className="recipe-detail__step-header">
-            <span className="icon-list">
+        <div className="recipe-detail__box">
+          <header className="recipe-detail__box-header recipe-detail__box-header--center">
+            <span className="icon-color">
               <ListChecks className="recipe-detail__svg" />
             </span>
-            <h2 className="recipe-detail__step-title">Directions</h2>
+            <h2 className="recipe-detail__list-title">Directions</h2>
           </header>
-          <ol className="recipe-detail__step-list">
+          <ol className="recipe-detail__list">
             {currentRecipe.steps.map((step, index) => (
-              <li className="recipe-detail__step-item" key={index}>
+              <li className="recipe-detail__step-item recipe-detail__list--padding-left" key={index}>
                 <h2 className="recipe-detail__step-item-title">
                   Step {index + 1}
                 </h2>
