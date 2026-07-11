@@ -1,5 +1,5 @@
 import { Plus, Trash2 } from "lucide-react";
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 
 import Button from "../components/Button";
 import { RecipeContext } from "../context/RecipeContext";
@@ -21,6 +21,8 @@ export default function AddRecipe() {
   const [imageUrl, setImageUrl] = useState("");
   const [errors, setErrors] = useState({});
   const { recipes, addRecipe } = useContext(RecipeContext);
+  const ingredientRefs = useRef([]);
+  const stepRefs = useRef([]);
 
   const addRow = (setState, getInitialState) => {
     setState((prev) => [...prev, getInitialState()]);
@@ -38,6 +40,41 @@ export default function AddRecipe() {
     setState((prev) =>
       prev.map((item) => (item.id === id ? { ...item, [field]: value } : item)),
     );
+  };
+
+  const handleKeyDown = ({
+    e,
+    index,
+    item,
+    list,
+    setState,
+    getInitialState,
+    refsArray,
+    emptyFieldToCheck,
+  }) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      addRow(setState, getInitialState);
+      setTimeout(() => {
+        if (refsArray.current[index + 1]) {
+          refsArray.current[index + 1].focus();
+        }
+      }, 0);
+    }
+
+    if (
+      e.key === "Backspace" &&
+      item[emptyFieldToCheck] === "" &&
+      list.length > 1
+    ) {
+      e.preventDefault();
+      removeRow(setState, list, item.id, getInitialState);
+      setTimeout(() => {
+        if (refsArray.current[index - 1]) {
+          refsArray.current[index - 1].focus();
+        }
+      }, 0);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -117,7 +154,7 @@ export default function AddRecipe() {
             )}
           </legend>
 
-          {ingredients.map((ingredient) => (
+          {ingredients.map((ingredient, index) => (
             <div
               className="add-recipe__row add-recipe__row--ingredient"
               key={ingredient.id}
@@ -132,7 +169,20 @@ export default function AddRecipe() {
                     e.target.value,
                   )
                 }
+                onKeyDown={(e) =>
+                  handleKeyDown({
+                    e,
+                    index,
+                    item: ingredient,
+                    list: ingredients,
+                    setState: setIngredients,
+                    getInitialState: setIngredientsState,
+                    refsArray: ingredientRefs,
+                    emptyFieldToCheck: "name",
+                  })
+                }
                 placeholder="Ingredient (e.g. Salmon)"
+                ref={(el) => (ingredientRefs.current[index] = el)}
                 value={ingredient.name}
               />
 
@@ -238,7 +288,20 @@ export default function AddRecipe() {
                 onChange={(e) =>
                   updateRow(setSteps, step.id, "text", e.target.value)
                 }
+                onKeyDown={(e) =>
+                  handleKeyDown({
+                    e,
+                    index,
+                    item: step,
+                    list: steps,
+                    setState: setSteps,
+                    getInitialState: setStepsState,
+                    refsArray: stepRefs,
+                    emptyFieldToCheck: "text",
+                  })
+                }
                 placeholder="Add..."
+                ref={(el) => (stepRefs.current[index] = el)}
                 value={step.text}
               />
               <Button
