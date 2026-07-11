@@ -22,45 +22,22 @@ export default function AddRecipe() {
   const [errors, setErrors] = useState({});
   const { recipes, addRecipe } = useContext(RecipeContext);
 
-  //Handle Ingredient Changes
-  const handleIngredientChange = (id, field, value) => {
-    setIngredients(
-      ingredients.map((ing) =>
-        ing.id === id ? { ...ing, [field]: value } : ing,
-      ),
-    );
+  const addRow = (setState, getInitialState) => {
+    setState((prev) => [...prev, getInitialState()]);
   };
 
-  const addIngredientRow = () => {
-    setIngredients([...ingredients, setIngredientsState()]);
-  };
-
-  const removeIngredientRow = (id) => {
-    //If last row reset the input
-    if (ingredients.length <= 1) {
-      setIngredients([setIngredientsState()]);
+  const removeRow = (setState, currentList, id, getInitialState) => {
+    if (currentList.length <= 1) {
+      setState([getInitialState()]);
       return;
     }
-    setIngredients(ingredients.filter((ing) => ing.id !== id));
+    setState(currentList.filter((item) => item.id !== id));
   };
 
-  //Handle Instructions Changes
-  const handleStepChange = (id, value) => {
-    setSteps(
-      steps.map((step) => (step.id === id ? { ...step, text: value } : step)),
+  const updateRow = (setState, id, field, value) => {
+    setState((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, [field]: value } : item)),
     );
-  };
-
-  const addStepRow = () => {
-    setSteps([...steps, setStepsState()]);
-  };
-
-  const removeStepRow = (id) => {
-    if (steps.length <= 1) {
-      setSteps([setStepsState()]);
-      return;
-    }
-    setSteps(steps.filter((step) => step.id !== id));
   };
 
   const handleSubmit = (e) => {
@@ -110,10 +87,6 @@ export default function AddRecipe() {
     setErrors({});
   };
 
-  const handleChange = (e) => {
-    setTitle(e.target.value);
-  };
-
   return (
     <main className="container page-view">
       <form className="add-recipe" onSubmit={handleSubmit}>
@@ -129,7 +102,7 @@ export default function AddRecipe() {
           <input
             className={`add-recipe__input ${errors.title ? "add-recipe__input--error" : ""}`}
             name="title"
-            onChange={handleChange}
+            onChange={(e) => setTitle(e.target.value)}
             placeholder="Pizza..."
             value={title}
           />
@@ -152,7 +125,12 @@ export default function AddRecipe() {
               <input
                 className={`add-recipe__input ${errors.ingredients ? "add-recipe__input--error" : ""}`}
                 onChange={(e) =>
-                  handleIngredientChange(ingredient.id, "name", e.target.value)
+                  updateRow(
+                    setIngredients,
+                    ingredient.id,
+                    "name",
+                    e.target.value,
+                  )
                 }
                 placeholder="Ingredient (e.g. Salmon)"
                 value={ingredient.name}
@@ -162,7 +140,8 @@ export default function AddRecipe() {
                 className={`add-recipe__input ${errors.ingredients ? "add-recipe__input--error" : ""}`}
                 min="0"
                 onChange={(e) =>
-                  handleIngredientChange(
+                  updateRow(
+                    setIngredients,
                     ingredient.id,
                     "amount",
                     e.target.value,
@@ -177,7 +156,12 @@ export default function AddRecipe() {
               <select
                 className={`add-recipe__input ${errors.ingredients ? "add-recipe__input--error" : ""}`}
                 onChange={(e) =>
-                  handleIngredientChange(ingredient.id, "unit", e.target.value)
+                  updateRow(
+                    setIngredients,
+                    ingredient.id,
+                    "unit",
+                    e.target.value,
+                  )
                 }
                 value={ingredient.unit}
               >
@@ -210,7 +194,14 @@ export default function AddRecipe() {
 
               <Button
                 className="add-recipe__btn--remove"
-                onClick={() => removeIngredientRow(ingredient.id)}
+                onClick={() =>
+                  removeRow(
+                    setIngredients,
+                    ingredients,
+                    ingredient.id,
+                    setIngredientsState,
+                  )
+                }
                 variant="danger"
               >
                 <Trash2 size={18} />
@@ -220,7 +211,7 @@ export default function AddRecipe() {
 
           <Button
             className="add-recipe__btn"
-            onClick={addIngredientRow}
+            onClick={() => addRow(setIngredients, setIngredientsState)}
             variant="secondary"
           >
             <Plus size={18} style={{ marginRight: "8px" }} /> Add Ingredient
@@ -244,13 +235,17 @@ export default function AddRecipe() {
               <span className="add-recipe__step-number">{index + 1}.</span>
               <input
                 className={`add-recipe__input ${errors.steps ? "add-recipe__input--error" : ""}`}
-                onChange={(e) => handleStepChange(step.id, e.target.value)}
+                onChange={(e) =>
+                  updateRow(setSteps, step.id, "text", e.target.value)
+                }
                 placeholder="Add..."
                 value={step.text}
               />
               <Button
                 className="add-recipe__btn--remove"
-                onClick={() => removeStepRow(step.id)}
+                onClick={() =>
+                  removeRow(setSteps, steps, step.id, setStepsState)
+                }
                 variant="danger"
               >
                 <Trash2 size={18} />
@@ -260,7 +255,7 @@ export default function AddRecipe() {
 
           <Button
             className="add-recipe__btn"
-            onClick={addStepRow}
+            onClick={() => addRow(setSteps, setStepsState)}
             variant="secondary"
           >
             <Plus size={18} style={{ marginRight: "8px" }} /> Add Step
