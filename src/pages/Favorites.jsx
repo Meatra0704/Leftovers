@@ -1,4 +1,4 @@
-import { Heart } from "lucide-react";
+import { Heart, SearchX } from "lucide-react";
 import React, { useContext, useState } from "react";
 
 import EmptyState from "../components/EmptyState";
@@ -10,11 +10,11 @@ export default function Favorites() {
   const { recipes } = useContext(RecipeContext);
   const [searchText, setSearchText] = useState("");
 
-  const favoriteRecipes = recipes
-    .filter((recipe) => recipe.isFavorite)
-    .filter((recipe) =>
-      recipe.title.toLowerCase().includes(searchText.toLowerCase()),
-    );
+  const allFavorites = recipes.filter((recipe) => recipe.isFavorite);
+
+  const filteredFavorites = allFavorites.filter((recipe) =>
+    recipe.title.toLowerCase().includes(searchText.toLowerCase()),
+  );
 
   return (
     <main className="container page-view">
@@ -25,7 +25,8 @@ export default function Favorites() {
           subtitle="All your saved recipes in one place."
           title="Your Favorites"
         />
-        {favoriteRecipes.length === 0 ? (
+
+        {allFavorites.length === 0 ? (
           <EmptyState
             icon={Heart}
             linkText="Browse Catalog"
@@ -33,8 +34,14 @@ export default function Favorites() {
             message="Tap the heart icon on any recipe to save it for later."
             title="No favorites yet"
           />
+        ) : filteredFavorites.length === 0 ? (
+          <EmptyState
+            icon={SearchX}
+            message={`You don't have any favorite recipes matching "${searchText}".`}
+            title="No matches found"
+          />
         ) : (
-          <RecipeGrid recipes={favoriteRecipes} />
+          <RecipeGrid recipes={filteredFavorites} />
         )}
       </section>
     </main>
