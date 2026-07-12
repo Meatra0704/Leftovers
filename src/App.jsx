@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import { RecipeProvider } from "./context/RecipeContext";
@@ -13,7 +13,7 @@ import RecipeDetails from "./pages/RecipeDetails";
 function App() {
   return (
     <RecipeProvider>
-      <Router basename={import.meta.env.BASE_URL}>
+      <Router>
         <ScrollToTop />
 
         <Navbar />
