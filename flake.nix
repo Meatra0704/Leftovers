@@ -29,7 +29,7 @@
             pname = "leftovers";
             version = "1.0.0";
             src = ./.;
-            npmDepsHash = "sha256-VeyhCjO4Px800xGF4oN0KCvwax+wLUG/lUmXxsZy734=";
+            npmDepsHash = "sha256-MSvBCvcLDPvNAByqFov3wSiy2vj+UGYp2znr40epVno=";
             buildInputs = [ pkgs.nodejs_24 ];
             buildPhase = ''
               npm run build -- --base=/
